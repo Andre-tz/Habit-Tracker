@@ -1,18 +1,22 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { HabitContext } from "../context/HabitContext.jsx"
+import "../styles/HabitForm.css"
 
 const HabitForms = (  ) => {
 
+    //contexto que se encargará de usar mi lista de habitos y la funcion para agregarlos
     const { habits, addHabits } = useContext( HabitContext );
 
+    //este estado se encargará de guardar los datos obtenido en mi formulario
     const [ habitData, setHabitData ] = useState( {
         name: "",
-        days: "1 vez a la semana",
+        days: [ ],
         reminder: "08:00",
-        note: "-",
+        note: "",
         status: "No completado"
     } );
 
+    //Funciones para actualizar los valores de mis estados
     const handleInput = e =>{
         
         setHabitData( {
@@ -22,17 +26,47 @@ const HabitForms = (  ) => {
         
     }
 
-    const handleClick = e =>{
-        setHabitData({
-            ...habitData,
-            [ e.target.name ] : e.target.nextSibling.textContent.trim()
-        })
+    const handleDays = e =>{
+
+        let day = e.target.name;
+
+        setHabitData( currentHabit => ({
+            ...currentHabit,
+            //con estos metodos si el dia presionado esta en mi array "days" lo elimina en caso contrario lo agrega
+            days : currentHabit.days.includes( day)? currentHabit.days.filter( d => d !== day) : [ ...currentHabit.days, day ]
+        }))
+           
     }
 
+    //funcion para agregar los datos del formaulario a mi lista de habitos
     const handleSubmit = e =>{
         e.preventDefault();
-        addHabits( habitData )
-        console.log( habitData )
+
+        if( !habitData.name ){
+            alert( "Falta el nombre del hábito")
+            return
+        }
+
+        if (habitData.days.length === 0) {
+            alert("Selecciona al menos un día.");
+            return;
+        }
+
+        addHabits( habitData );
+        alert( "Su hábito ha sido guardado" )
+        clearForm();
+    }
+   
+
+    //Limpiar el formulario
+    const clearForm = ( ) => {
+        setHabitData( {
+            name: "",
+            days: [ ],
+            reminder: "08:00",
+            note: "",
+            status: "No completado"
+        })
     }
 
     return (
@@ -50,20 +84,17 @@ const HabitForms = (  ) => {
 
                 <div className="field">
                     <h2>Frecuencia ( Selecciona la cantidad ) :</h2>
-                    <label>
-                        <input onChange={ handleClick } type="radio" name="days" />
-                        1 vez a la semana
-                    </label>
-
-                    <label>
-                        <input onChange={ handleClick } type="radio" name="days" />
-                        2 a 4 veces a la semana
-                    </label>
-
-                    <label>
-                        <input onChange={ handleClick } type="radio" name="days" />
-                        todos los dias
-                    </label>
+                    
+                    <div className="button-container">
+                        <button type="button" className={ `button-days ${habitData.days.includes( "lunes" )? "selected" : "" }` } name="lunes" onClick={ handleDays }>L</button>
+                        <button type="button" className={ `button-days ${habitData.days.includes( "martes" )? "selected" : "" }` } name="martes" onClick={ handleDays }>M</button>
+                        <button type="button" className={ `button-days ${habitData.days.includes( "miercoles" )? "selected" : "" }` } name="miercoles" onClick={ handleDays }>M</button>
+                        <button type="button" className={ `button-days ${habitData.days.includes( "jueves" )? "selected" : "" }` } name="jueves" onClick={ handleDays }>J</button>
+                        <button type="button" className={ `button-days ${habitData.days.includes( "viernes" )? "selected" : "" }` } name="viernes" onClick={ handleDays }>V</button>
+                        <button type="button" className={ `button-days ${habitData.days.includes( "sabado" )? "selected" : "" }` } name="sabado" onClick={ handleDays }>S</button>
+                        <button type="button" className={ `button-days ${habitData.days.includes( "domingo" )? "selected" : "" }` } name="domingo" onClick={ handleDays }>D</button>
+                    </div>
+                    
                 </div>
 
                 <div className="field">
@@ -76,12 +107,12 @@ const HabitForms = (  ) => {
                 <div className="field">
                     <label>
                         Notas Adicionales:
-                        <textarea onChange={ handleInput } name="note" value={ habitData.note} ></textarea>
+                        <textarea onChange={ handleInput } name="note" value={ habitData.note} placeholder="Agregar algun comentario"></textarea>
                     </label>
                 </div>
 
                 <div className="field">
-                    <input onClick={ handleSubmit } type="submit" value="Crear" />
+                    <button id = "submit" onClick={ handleSubmit } type="submit">Crear</button>
                 </div>
   
             </form>
