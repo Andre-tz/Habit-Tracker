@@ -5,10 +5,11 @@ import "../styles/HabitForm.css"
 const HabitForms = (  ) => {
 
     //contexto que se encargará de usar mi lista de habitos y la funcion para agregarlos
-    const { habits, addHabits } = useContext( HabitContext );
+    const { addHabits } = useContext( HabitContext );
 
     //este estado se encargará de guardar los datos obtenido en mi formulario
     const [ habitData, setHabitData ] = useState( {
+        id: crypto.randomUUID(),
         name: "",
         days: [ ],
         reminder: "08:00",
@@ -61,6 +62,7 @@ const HabitForms = (  ) => {
     //Limpiar el formulario
     const clearForm = ( ) => {
         setHabitData( {
+            id: crypto.randomUUID(),
             name: "",
             days: [ ],
             reminder: "08:00",
@@ -78,7 +80,7 @@ const HabitForms = (  ) => {
                 <div className="field">
                     <label>
                         Nombre del hábito
-                        <input onChange={ handleInput } type="text" name="name"  placeholder="Ejm: Saltar soga"/>
+                        <input onChange={ handleInput } type="text" name="name"  placeholder="Ejm: Saltar soga" value={ habitData.name}/>
                     </label>
                 </div>
 

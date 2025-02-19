@@ -5,19 +5,32 @@ const HabitContext = createContext( );
 const HabitContextProvider = ( {children } ) => {
 
     const [ habits, setHabits ] = useState( [] );
+    const [ loading, setLoading ] = useState ( true )
 
     //este useEffect se encarga de traer todos los datos el localStorage a mi array de habilidades
     useEffect( () =>{
-        const storeHabits = localStorage.getItem( "habits") 
+        const storeHabits = localStorage.getItem( "habitos") 
         if( storeHabits ) {
-            setHabits( JSON.parse( storeHabits ) )
+            try {
+                setHabits( JSON.parse( storeHabits ) )
+                console.log( "habitos obtenidos" )
+
+            } catch (error) {
+                console.error( "Error al obtener habitos", error )
+                setHabits( [] )
+            }
+            
+        }else{
+            setHabits( [] )
         }
+
+        setLoading( false )
     }, [])
 
     //con useEffect se actualiza el localStorage cuando no se esta utilizando el addHabits.
     useEffect( () =>{
         if( habits.length > 0 ){
-            localStorage.setItem( "habits", JSON.stringify( habits ))
+            localStorage.setItem( "habitos", JSON.stringify( habits ))
         }
     }, [ habits])
 
@@ -33,7 +46,7 @@ const HabitContextProvider = ( {children } ) => {
     };
 
     return (
-        <HabitContext.Provider value={ { habits, addHabits } }>
+        <HabitContext.Provider value={ { habits, loading, addHabits } }>
             { children }
         </HabitContext.Provider>
     )
