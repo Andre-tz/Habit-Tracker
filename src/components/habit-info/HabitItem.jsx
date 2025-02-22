@@ -1,4 +1,4 @@
-import "../styles/HabitItem.css"
+import "../../styles/HabitItem.css"
 
 const HabitItem = ( {nombre, frecuencia, estado, nota } ) => {
 

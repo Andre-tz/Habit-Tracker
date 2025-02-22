@@ -88,13 +88,13 @@ const HabitForms = (  ) => {
                     <h2>Frecuencia ( Selecciona la cantidad ) :</h2>
                     
                     <div className="button-container">
-                        <button type="button" className={ `button-days ${habitData.days.includes( "lunes" )? "selected" : "" }` } name="lunes" onClick={ handleDays }>L</button>
-                        <button type="button" className={ `button-days ${habitData.days.includes( "martes" )? "selected" : "" }` } name="martes" onClick={ handleDays }>M</button>
-                        <button type="button" className={ `button-days ${habitData.days.includes( "miercoles" )? "selected" : "" }` } name="miercoles" onClick={ handleDays }>M</button>
-                        <button type="button" className={ `button-days ${habitData.days.includes( "jueves" )? "selected" : "" }` } name="jueves" onClick={ handleDays }>J</button>
-                        <button type="button" className={ `button-days ${habitData.days.includes( "viernes" )? "selected" : "" }` } name="viernes" onClick={ handleDays }>V</button>
-                        <button type="button" className={ `button-days ${habitData.days.includes( "sabado" )? "selected" : "" }` } name="sabado" onClick={ handleDays }>S</button>
-                        <button type="button" className={ `button-days ${habitData.days.includes( "domingo" )? "selected" : "" }` } name="domingo" onClick={ handleDays }>D</button>
+                        <button type="button" className={ `button-days ${habitData.days.includes( "Lunes" )? "selected" : "" }` } name="Lunes" onClick={ handleDays }>L</button>
+                        <button type="button" className={ `button-days ${habitData.days.includes( "Martes" )? "selected" : "" }` } name="Martes" onClick={ handleDays }>M</button>
+                        <button type="button" className={ `button-days ${habitData.days.includes( "Miércoles" )? "selected" : "" }` } name="Miércoles" onClick={ handleDays }>M</button>
+                        <button type="button" className={ `button-days ${habitData.days.includes( "Jueves" )? "selected" : "" }` } name="jueves" onClick={ handleDays }>J</button>
+                        <button type="button" className={ `button-days ${habitData.days.includes( "Viernes" )? "selected" : "" }` } name="Viernes" onClick={ handleDays }>V</button>
+                        <button type="button" className={ `button-days ${habitData.days.includes( "Sábado" )? "selected" : "" }` } name="Sábado" onClick={ handleDays }>S</button>
+                        <button type="button" className={ `button-days ${habitData.days.includes( "Domingo" )? "selected" : "" }` } name="Domingo" onClick={ handleDays }>D</button>
                     </div>
                     
                 </div>

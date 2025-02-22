@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { HabitContext } from '../context/HabitContext.jsx';
-import HabitItem from "./HabitItem.jsx"
+import HabitItem from "./habit-info/HabitItem.jsx"
 import "../styles/HabitList.css"
 
 const HabitList = ( ) => {
