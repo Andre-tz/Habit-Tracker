@@ -13,8 +13,6 @@ const HabitContextProvider = ( {children } ) => {
         if( storeHabits ) {
             try {
                 setHabits( JSON.parse( storeHabits ) )
-                console.log( "habitos obtenidos" )
-
             } catch (error) {
                 console.error( "Error al obtener habitos", error )
                 setHabits( [] )
@@ -31,6 +29,8 @@ const HabitContextProvider = ( {children } ) => {
     useEffect( () =>{
         if( habits.length > 0 ){
             localStorage.setItem( "habitos", JSON.stringify( habits ))
+        } else{
+            localStorage.clear()
         }
     }, [ habits ])
 

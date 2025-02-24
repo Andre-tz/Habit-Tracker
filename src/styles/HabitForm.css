@@ -1,77 +1,71 @@
-form {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
-}
-
-/* Título */
-h1 {
+h1, h2 {
     text-align: center;
-    font-size: 20px;
-    color: #222;
-}
-
-/* Campos del formulario */
-.field {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-/* Botones de días */
-.button-container {
+  }
+  
+  form {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+  }
+  
+  .field {
+    display: flex;
+    flex-direction: column;
     gap: 5px;
-}
-
-.button-days {
-    width: 30px;
-    height: 30px;
-    border: none;
-    border-radius: 50%;
-    background: lightgray;
-    font-weight: bold;
+  }
+  
+  input, textarea {
+    border: 2px solid black;
+    background: transparent;
+    padding: 10px;
+    font-size: 1rem;
+    color: black;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+  }
+  
+  textarea {
+    resize: none;
+    height: 80px;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .button-days {
+    border: 2px solid black;
+    background: transparent;
+    color: black;
+    padding: 5px 10px;
     cursor: pointer;
     transition: 0.3s;
-}
-
-.button-days:hover {
-    background: #bbb;
-}
-
-/* Cuando el usuario seleccione un día */
-.button-days.selected {
-    background: #4CAF50;
-    color: white;
-}
-
-/* Botón de enviar */
-#submit {
-    width: 100%;
-    background: #007BFF;
-    color: white;
-    padding: 10px;
-    border: none;
     border-radius: 5px;
+  }
+  
+  .button-days.selected {
+    background: black;
+    color: white;
+  }
+  
+  button {
+    border: 2px solid black;
+    background: transparent;
+    padding: 10px;
+    font-size: 1rem;
     cursor: pointer;
-    font-size: 16px;
-}
-
-#submit:hover {
-    background: #0056b3;
-}
+    transition: background 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background: black;
+    color: white;
+  }

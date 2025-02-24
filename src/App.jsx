@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom"
 import { HabitContext } from "./context/HabitContext";
 import HabitDay from "./components/HabitDay";
 import HabitCheck from "./components/habit-info/HabitCheck";
+import "./styles/App.css"
 
 function App() {
 
@@ -27,25 +28,30 @@ function App() {
 	const daysWeek = [ "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo" ];
 
   return (
-    <>
-    	<h1>Bienvenido a Habit Tracker</h1>
+    <div id="main-container">
+    	<h1 className="title">Bienvenido a Habit Tracker</h1>
 		<ul>
-			<NavLink to= "/habit-list"><button className="button">Ver Habitos</button></NavLink>
-			<NavLink to = "/habit-form"><button className="button">Crear Habitos</button></NavLink>
+			<NavLink to= "/habit-list"><button className="button-main">Ver Habitos</button></NavLink>
+			<NavLink to = "/habit-form"><button className="button-main">Crear Habitos</button></NavLink>
 		</ul>
 
 		<section className="daily-habits">
 
-			{ daysWeek.map( dia => (
-				<HabitDay 
-					key={ dia }
-					day={ dia }
-					habits = { splitHabits ( dia, habits )}
-				/>
-			))}
+			{ habits.length == 0? 
+
+				<h3 id="message"> No hay hábitos para mostrar</h3> :
+
+				daysWeek.map( dia => (
+					<HabitDay 
+						key={ dia }
+						day={ dia }
+						habits = { splitHabits ( dia, habits )}
+					/>
+				)) 
+			}
 		
 		</section>
-    </>
+    </div>
   )
 }
 

@@ -1,3 +1,5 @@
+import "../styles/HabitDay.css"
+
 //Este componente obtendra los habitso que correspondan a su dia correspondiente
 
 const HabitDay = ( { day, habits = [] } ) => {

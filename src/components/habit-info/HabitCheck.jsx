@@ -1,3 +1,5 @@
+import "../../styles/HabitCheck.css"
+
 //Este componente me mostrara la infomacion resumida del habito
 
 const HabitCheck = ( {name, status } ) => {

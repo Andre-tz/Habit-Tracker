@@ -1,0 +1,38 @@
+#main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .button-main {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: 2px solid black;
+    background: transparent;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+  
+  .button-main:hover {
+    background: black;
+    color: white;
+  }
+  
+  .daily-habits {
+    max-height: 60vh;
+    overflow-y: auto;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  

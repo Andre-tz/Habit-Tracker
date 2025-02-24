@@ -1,0 +1,29 @@
+.day-container {
+    background: black;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 700px;
+    margin: 15px auto;
+    text-align: center;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .day-info {
+    margin-top: 10px;
+  }
+  
+  .habit-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .habit-list li {
+    background: white;
+    color: black;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
