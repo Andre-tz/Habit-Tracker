@@ -32,9 +32,9 @@ const HabitContextProvider = ( {children } ) => {
         if( habits.length > 0 ){
             localStorage.setItem( "habitos", JSON.stringify( habits ))
         }
-    }, [ habits])
+    }, [ habits ])
 
-    //agregando los habitos a mi lista de habitos y a su vez los estoy guardando en mi local storahe
+    //agregando los habitos a mi lista de habitos y a su vez los estoy guardando en mi local storage
     const addHabits = habit => {
         setHabits(prevHabits => {
             const updatedHabits = [...prevHabits, habit];
@@ -45,8 +45,13 @@ const HabitContextProvider = ( {children } ) => {
         });
     };
 
+    //funcion para eliminar los habitos al usar un boton
+    const handleDelete = ( nameHabit ) =>{
+        setHabits( prevHabits => prevHabits.filter( habit => habit.name !== nameHabit) )
+    }
+
     return (
-        <HabitContext.Provider value={ { habits, loading, addHabits } }>
+        <HabitContext.Provider value={ { habits, loading, addHabits, handleDelete } }>
             { children }
         </HabitContext.Provider>
     )
