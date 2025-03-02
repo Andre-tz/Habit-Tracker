@@ -12,10 +12,10 @@ function App() {
 	//Esta funcion se encargar de dividir todos los habitos por dia
 	const splitHabits = ( day, habitsInfo ) =>(
 		habitsInfo
-			//usamos filter para separar los habitos que compartan el mismo dia
+			//usé filter para separar los habitos que compartan el mismo dia
 			.filter( habit => habit.days.includes( day ) )
 
-			//con map cremos componente que muestran la informacion de esos habitos separados
+			//con map creo los componentes que muestran la informacion de esos habitos separados
 			.map( habito => (
 			<HabitCheck
 			key={ habito.id } 
@@ -29,10 +29,11 @@ function App() {
 
   return (
     <div id="main-container">
+
     	<h1 className="title">Bienvenido a Habit Tracker</h1>
-		<ul>
-			<NavLink to= "/habit-list"><button className="button-main">Ver Habitos</button></NavLink>
-			<NavLink to = "/habit-form"><button className="button-main">Crear Habitos</button></NavLink>
+		<ul className="menu">
+			<NavLink to= "/habit-list"><button className="button-main create">Ver Habitos</button></NavLink>
+			<NavLink to = "/habit-form"><button className="button-main view">Crear Habitos</button></NavLink>
 		</ul>
 
 		<section className="daily-habits">

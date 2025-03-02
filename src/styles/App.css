@@ -1,34 +1,56 @@
+
 #main-container {
+    min-width: 350px;
+    width: 100%;
+    height: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    height: 100vh;
     text-align: center;
   }
-  
-  .button-container {
+
+.title{
+    font-size: 2rem;
+}
+
+.menu{
+    width: 80%;
+    height: 50%;
     display: flex;
-    gap: 15px;
-    margin-top: 20px;
-  }
-  
-  .button-main {
-    padding: 15px 25px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button-main {
+    padding: .5em;
     font-size: 1.2rem;
     cursor: pointer;
-    border: 2px solid black;
+    border: 2px solid rgba(0, 0, 0, 0.403);
     background: transparent;
-    border-radius: 5px;
+    border-radius: .4em;
     transition: background 0.3s;
   }
   
-  .button-main:hover {
-    background: black;
+.view{
+    background: #3498db;
     color: white;
+}
+
+.create{
+    background-color: #2ecc71;
+    color: white;
+}
+.view:hover {
+    background-color: #2980b9;
   }
+
+.create:hover{
+    background-color: #27ae60;
+}
   
-  .daily-habits {
+.daily-habits {
     max-height: 60vh;
     overflow-y: auto;
     width: 100%;
@@ -36,3 +58,10 @@
     margin-top: 20px;
   }
   
+@media (min-width: 768px) and (max-width: 1023px){
+
+}
+
+@media (min-width: 1024px){
+
+}
