@@ -27,7 +27,7 @@ const HabitList = ( ) => {
                         estado = { status }
                         nota = { note } />
             )))
-            : <p> No hay hábitos para cargar </p>
+            : <p className='message'> No hay hábitos para cargar </p>
             } 
             </div>
         </>

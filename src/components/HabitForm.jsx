@@ -72,8 +72,8 @@ const HabitForms = (  ) => {
     }
 
     return (
-        <>
-            <h1 className="titulo">Formulario de habitos</h1>
+        <section id="habit-form">
+            <h1 className="title">Añade un hábito a tu vida</h1>
 
             <form>
 
@@ -85,13 +85,13 @@ const HabitForms = (  ) => {
                 </div>
 
                 <div className="field">
-                    <h2>Frecuencia ( Selecciona la cantidad ) :</h2>
+                    <p className="field-title">Frecuencia ( Selecciona la cantidad ) :</p>
                     
                     <div className="button-container">
                         <button type="button" className={ `button-days ${habitData.days.includes( "Lunes" )? "selected" : "" }` } name="Lunes" onClick={ handleDays }>Lun</button>
                         <button type="button" className={ `button-days ${habitData.days.includes( "Martes" )? "selected" : "" }` } name="Martes" onClick={ handleDays }>Mar</button>
                         <button type="button" className={ `button-days ${habitData.days.includes( "Miércoles" )? "selected" : "" }` } name="Miércoles" onClick={ handleDays }>Mie</button>
-                        <button type="button" className={ `button-days ${habitData.days.includes( "Jueves" )? "selected" : "" }` } name="jueves" onClick={ handleDays }>Jue</button>
+                        <button type="button" className={ `button-days ${habitData.days.includes( "Jueves" )? "selected" : "" }` } name="Jueves" onClick={ handleDays }>Jue</button>
                         <button type="button" className={ `button-days ${habitData.days.includes( "Viernes" )? "selected" : "" }` } name="Viernes" onClick={ handleDays }>Vie</button>
                         <button type="button" className={ `button-days ${habitData.days.includes( "Sábado" )? "selected" : "" }` } name="Sábado" onClick={ handleDays }>Sab</button>
                         <button type="button" className={ `button-days ${habitData.days.includes( "Domingo" )? "selected" : "" }` } name="Domingo" onClick={ handleDays }>Dom</button>
@@ -113,13 +113,11 @@ const HabitForms = (  ) => {
                     </label>
                 </div>
 
-                <div className="field">
                     <button id = "submit" onClick={ handleSubmit } type="submit">Crear</button>
-                </div>
-  
+
             </form>
 
-        </>
+        </section>
         
     )
 }

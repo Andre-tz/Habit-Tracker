@@ -40,7 +40,7 @@ function App() {
 
 			{ habits.length == 0? 
 
-				<h3 id="message"> No hay hábitos para mostrar</h3> :
+				<h3 className="message"> No hay hábitos para mostrar</h3> :
 
 				daysWeek.map( dia => (
 					<HabitDay 
