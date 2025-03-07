@@ -46,8 +46,15 @@ const HabitContextProvider = ( {children } ) => {
     };
 
     //funcion para eliminar los habitos al usar un boton
-    const handleDelete = ( nameHabit ) =>{
-        setHabits( prevHabits => prevHabits.filter( habit => habit.name !== nameHabit) )
+    const handleDelete = ( idHabit ) =>{
+        setHabits( prevHabits =>{
+            const updateHabits= prevHabits.filter( habit => habit.id !== idHabit)   
+
+            //actualizando localStorage
+            localStorage.setItem( "habitos", JSON.stringify( updateHabits ));
+
+            return updateHabits;
+        })
     }
 
     return (

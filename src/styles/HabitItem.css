@@ -1,40 +1,97 @@
-  .habit-card {
-    background: black;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 500px;
-    margin: 15px auto;
+.habit-card {
+    min-width: 350px;
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #f4f4f5; 
+    border: 1px solid #e2e2e8;
+    border-radius: 12px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin: 16px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.habit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.habit-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
     text-align: center;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .habit-title {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-  }
-  
-  .habit-details {
-    font-size: 1rem;
-    margin-bottom: 15px;
-  }
-  
-  .habit-note {
+}
+
+.habit-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.habit-data {
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.text {
+    margin-left: 4px;
+    font-weight: 500;
+    color: #444;
+    display: block;
+}
+
+.habit-note {
+    background-color: #d8f3e3; 
+    border-left: 4px solid var( --button-principal ); 
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.text-note {
+    font-size: 13px;
+    color: #666;
+}
+
+.note {
+    font-weight: 500;
+    color: #555;
+}
+
+.empty{
+    display: flex;
+    justify-content: center;
     font-style: italic;
-  }
-  
-  .delente-habit {
-    background-color: red;
-    color: white;
+    color: #33333371;
+}
+
+.delente-habit {
+    background-color: var( --button-delete);
+    color: #fff;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 6px 12px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .delente-habit:hover {
-    background-color: darkred;
-  }
-  
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+.delente-habit:hover {
+    background-color: #c0392b;
+}
+
+@media( min-width: 768px ){
+
+    .habit-data{
+        flex-direction: row ;
+    }
+}

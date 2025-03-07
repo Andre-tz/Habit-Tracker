@@ -72,7 +72,7 @@ const HabitForms = (  ) => {
     }
 
     return (
-        <section id="habit-form">
+        <section id="habit-form" className="width-container">
             <h1 className="title">Añade un hábito a tu vida</h1>
 
             <form>

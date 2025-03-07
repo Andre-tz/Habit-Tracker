@@ -2,7 +2,7 @@ import { useContext } from "react";
 import "../../styles/HabitItem.css"
 import { HabitContext } from "../../context/HabitContext";
 
-const HabitItem = ( {nombre, frecuencia, estado, nota } ) => {
+const HabitItem = ( {id, nombre, frecuencia, estado, nota } ) => {
 
     const { handleDelete } = useContext( HabitContext );
 
@@ -12,12 +12,24 @@ const HabitItem = ( {nombre, frecuencia, estado, nota } ) => {
             <h1 className="habit-title">{nombre}</h1>
 
             <div className="habit-details">
-                <p><strong>Frecuencia:</strong> {frecuencia}</p>
-                <p><strong>Estado:</strong> {estado}</p>
-                {nota && <p className="habit-note"><strong>Nota:</strong> {nota}</p>}
+
+                <p className="habit-data">
+                    Frecuencia:
+                    <span className="text"> { frecuencia }</span>
+                </p>
+
+                <p className="habit-data">
+                    Estado:
+                    <span className="text">{ estado }</span>
+                </p>
+
+                <p className="habit-note text-note">
+                    Nota: <span className={`text note ${nota ? "" : "empty"}`}>{nota || "--- Sin notas ---"}</span>
+                </p>        
+
             </div>
 
-            <button onClick={ ( ) => { handleDelete( nombre ) } } className="delente-habit">Eliminar</button>
+            <button onClick={ ( ) => { handleDelete( id ) } } className="delente-habit">Eliminar</button>
 
         </div>
     )
