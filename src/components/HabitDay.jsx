@@ -6,7 +6,7 @@ const HabitDay = ( { day, habits = [] } ) => {
 
     return (
         <div className="day-container">
-            <h1>{ day }</h1>
+            <h1 className="title">{ day }</h1>
 
             <div className="day-info">
                 <ul className="habit-list">

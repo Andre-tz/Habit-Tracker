@@ -2,7 +2,7 @@ import { useContext } from "react";
 import "../../styles/HabitItem.css"
 import { HabitContext } from "../../context/HabitContext";
 
-const HabitItem = ( {id, nombre, frecuencia, estado, nota } ) => {
+const HabitItem = ( { id, nombre, frecuencia, estado, nota } ) => {
 
     const { handleDelete } = useContext( HabitContext );
 

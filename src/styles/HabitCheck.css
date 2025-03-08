@@ -1,28 +1,42 @@
 .habit-check {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: white;
-    color: black;
-    padding: 10px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 800px;
-    margin: 10px auto;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .habitCheck {
-    transform: scale(1.5);
-  }
-  
-  .habit-name {
-    font-size: 1.2rem;
-    flex-grow: 1;
-  }
-  
-  .habit-estatus {
-    font-size: 1rem;
-    font-style: italic;
-  }
+  display: flex;
+  align-items: center;
+  background-color: #3a3f58; /* Fondo acorde a los hábitos */
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.habit-check:hover {
+  background-color: #4b5378; /* Un poco más claro al pasar el mouse */
+}
+
+.habitCheck {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  accent-color: #3498db; /* Usando el color principal para el check */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.habitCheck:active {
+  transform: scale(1.1); /* Efecto sutil al clickear */
+}
+
+.habit-name {
+  flex: 1;  /* Ocupa el espacio disponible */
+  font-size: 18px;
+  color: #edf2f4; /* Texto claro para contraste */
+}
+
+.habit-estatus {
+  font-size: 14px;
+  color: #8d99ae; /* Color secundario para el estado */
+  margin-left: 10px;
+  text-align: right;
+}
+
   

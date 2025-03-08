@@ -1,29 +1,47 @@
 .day-container {
-    background: black;
-    color: white;
-    padding: 15px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 700px;
-    margin: 15px auto;
-    text-align: center;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .day-info {
-    margin-top: 10px;
-  }
-  
-  .habit-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .habit-list li {
-    background: white;
-    color: black;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
+	width: 90%;
+    max-width: 400px;
+  	background-color: #2b2d42; 
+  	color: #edf2f4;            
+  	border-radius: 12px;   
+  	padding: 20px;
+  	margin-bottom: 20px;
+  	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  	transition: transform 0.3s ease;
+}
+
+.day-container:hover {
+  transform: translateY(-5px); 
+}
+
+.day-container .title{
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.day-info {
+  background-color: #3a3f58; 
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.habit-list {
+  list-style-type: none; 
+  padding: 0;
+}
+
+.habit-list li {
+  background-color: #8d99ae;
+  color: #2b2d42;
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.habit-list li:hover {
+  background-color: #3498db; 
+  color: #fff;
+  cursor:auto;
+}
