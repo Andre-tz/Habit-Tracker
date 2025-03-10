@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { HabitContext } from '../context/HabitContext.jsx';
 import HabitItem from "./habit-info/HabitItem.jsx"
 import "../styles/HabitList.css"
@@ -6,7 +6,22 @@ import upperCase from '../helper/upperCase.js';
 
 const HabitList = ( ) => {
     
-    const { habits, loading } = useContext( HabitContext )
+    const { habits, loading, selectedHabit } = useContext( HabitContext )
+
+    //Con este useEffect busco en el localStorage  el habito que muest
+    useEffect ( ( ) =>{
+        if( selectedHabit){
+            const habitElement = document.getElementById( selectedHabit );
+            if( habitElement ){
+                habitElement.scrollIntoView ( {
+                    behavior : "smooth",
+                    block: "center"
+                })
+
+                setTimeout( ( )=>{ habitElement.classList.remove("highlight")}, 4000)
+            }
+        }
+    }, [ selectedHabit ]);
 
     const diasOrdenados = [ "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo" ];
 
@@ -34,7 +49,8 @@ const HabitList = ( ) => {
                                 .join( " - ") 
                             }
                         estado = { status }
-                        nota = { note } />
+                        nota = { note }
+                        dynamicClass={ upperCase( name ) === selectedHabit? "highlight" : "" } />
             )))
             : <p className='message'> No hay hábitos para cargar </p>
             } 

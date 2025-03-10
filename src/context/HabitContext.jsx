@@ -7,8 +7,12 @@ const HabitContextProvider = ( {children } ) => {
     const [ habits, setHabits ] = useState( [] );
     const [ loading, setLoading ] = useState ( true )
 
+    // usare este estado para guardar cualquier habito y usarlo mas adelante
+    const [ selectedHabit, setSelectedHabit ] = useState( "" );
+
     //este useEffect se encarga de traer todos los datos el localStorage a mi array de habilidades
     useEffect( () =>{
+
         const storeHabits = localStorage.getItem( "habitos") 
         if( storeHabits ) {
             try {
@@ -58,7 +62,7 @@ const HabitContextProvider = ( {children } ) => {
     }
 
     return (
-        <HabitContext.Provider value={ { habits, loading, addHabits, handleDelete } }>
+        <HabitContext.Provider value={ { habits, loading, addHabits, handleDelete, selectedHabit, setSelectedHabit } }>
             { children }
         </HabitContext.Provider>
     )

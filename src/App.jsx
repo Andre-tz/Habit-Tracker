@@ -12,11 +12,6 @@ function App() {
 
 	//Esta funcion se encargar de dividir todos los habitos por dia
 	const splitHabits = ( day, habitsInfo ) =>{
-
-		const handleStatus = ( )=>{
-
-		}
-
 		return (
 			habitsInfo
 				//usé filter para separar los habitos que compartan el mismo dia
@@ -27,7 +22,6 @@ function App() {
 				<HabitCheck
 				key={ habito.id } 
 				name={ upperCase( habito.name ) }
-				status={ habito.status }
 				/>
 			) )
 		)

@@ -2,12 +2,12 @@ import { useContext } from "react";
 import "../../styles/HabitItem.css"
 import { HabitContext } from "../../context/HabitContext";
 
-const HabitItem = ( { id, nombre, frecuencia, estado, nota } ) => {
+const HabitItem = ( { id, nombre, frecuencia, estado, nota, dynamicClass } ) => {
 
     const { handleDelete } = useContext( HabitContext );
 
     return (
-        <div className="habit-card">
+        <div className={`${ dynamicClass} habit-card`} >
 
             <h1 className="habit-title">{nombre}</h1>
 
