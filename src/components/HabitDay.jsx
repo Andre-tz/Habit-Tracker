@@ -1,6 +1,6 @@
 import "../styles/HabitDay.css"
 
-//Este componente obtendra los habitso que correspondan a su dia correspondiente
+//Este componente obtendra los habitos que correspondan a su dia correspondiente
 
 const HabitDay = ( { day, habits = [] } ) => {
 

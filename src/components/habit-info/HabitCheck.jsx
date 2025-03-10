@@ -5,7 +5,7 @@ import "../../styles/HabitCheck.css"
 const HabitCheck = ( {name, status, changeStatus } ) => {
     return (
         <div className="habit-check">
-            <input type="checkbox" name="habitCheck" className="habitCheck" onChange={ changeStatus }/>
+            <input type="checkbox" name="habitCheck" className="habitCheck" onClick={ changeStatus }/>
             <h3 className="habit-name">{ name }</h3>
             <p className="habit-estatus">{ status }</p>
         </div>

@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { HabitContext } from '../context/HabitContext.jsx';
 import HabitItem from "./habit-info/HabitItem.jsx"
 import "../styles/HabitList.css"
+import upperCase from '../helper/upperCase.js';
 
 const HabitList = ( ) => {
     
@@ -26,7 +27,7 @@ const HabitList = ( ) => {
                     <HabitItem
                         key={ id }
                         id= { id }
-                        nombre = { name.charAt( 0 ).toUpperCase()+name.slice( 1 ) }
+                        nombre = { upperCase( name ) }
                         frecuencia = { 
                             days
                                 .sort( ( a, b ) => diasOrdenados.indexOf( a ) - diasOrdenados.indexOf( b ) )

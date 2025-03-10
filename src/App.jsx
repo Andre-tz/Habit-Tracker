@@ -4,6 +4,7 @@ import { HabitContext } from "./context/HabitContext";
 import HabitDay from "./components/HabitDay";
 import HabitCheck from "./components/habit-info/HabitCheck";
 import "./styles/App.css"
+import upperCase from "./helper/upperCase";
 
 function App() {
 
@@ -11,6 +12,10 @@ function App() {
 
 	//Esta funcion se encargar de dividir todos los habitos por dia
 	const splitHabits = ( day, habitsInfo ) =>{
+
+		const handleStatus = ( )=>{
+
+		}
 
 		return (
 			habitsInfo
@@ -21,7 +26,7 @@ function App() {
 				.map( habito => (
 				<HabitCheck
 				key={ habito.id } 
-				name={ habito.name.charAt( 0 ).toUpperCase( )+habito.name.slice( 1 ) }
+				name={ upperCase( habito.name ) }
 				status={ habito.status }
 				/>
 			) )
