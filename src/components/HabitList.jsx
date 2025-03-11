@@ -6,7 +6,8 @@ import upperCase from '../helper/upperCase.js';
 
 const HabitList = ( ) => {
     
-    const { habits, loading, selectedHabit } = useContext( HabitContext )
+    const { habits, loading, selectedHabit, setSelectedHabit } = useContext( HabitContext )
+
 
     //Con este useEffect busco en el localStorage  el habito que muest
     useEffect ( ( ) =>{
@@ -17,9 +18,12 @@ const HabitList = ( ) => {
                     behavior : "smooth",
                     block: "center"
                 })
-
-                setTimeout( ( )=>{ habitElement.classList.remove("highlight")}, 4000)
             }
+
+            //Eliminado la clase 
+            setTimeout(() => {
+                setSelectedHabit( null )
+            }, (5000));
         }
     }, [ selectedHabit ]);
 
@@ -50,7 +54,10 @@ const HabitList = ( ) => {
                             }
                         estado = { status }
                         nota = { note }
-                        dynamicClass={ upperCase( name ) === selectedHabit? "highlight" : "" } />
+                        //clase dinamica ingresada para que el usuario se de cuenta de el habito que esta buscando
+                        dynamicClass={ 
+                            upperCase( name ) === selectedHabit? "highlight" : "" 
+                        } />
             )))
             : <p className='message'> No hay hábitos para cargar </p>
             } 

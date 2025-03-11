@@ -57,6 +57,7 @@ const HabitContextProvider = ( {children } ) => {
             //actualizando localStorage
             localStorage.setItem( "habitos", JSON.stringify( updateHabits ));
 
+            alert( "El hábito seleccionado ha sido eliminado" )
             return updateHabits;
         })
     }
