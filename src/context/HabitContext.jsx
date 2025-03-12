@@ -1,4 +1,6 @@
 import { createContext, useEffect, useState } from "react";
+import { toast } from "sonner";
+import { Toaster } from "sonner";
 
 const HabitContext = createContext( );
 
@@ -57,13 +59,14 @@ const HabitContextProvider = ( {children } ) => {
             //actualizando localStorage
             localStorage.setItem( "habitos", JSON.stringify( updateHabits ));
 
-            alert( "El hábito seleccionado ha sido eliminado" )
+            toast.success( "El hábito seleccionado ha sido eliminado" )
             return updateHabits;
         })
     }
 
     return (
         <HabitContext.Provider value={ { habits, loading, addHabits, handleDelete, selectedHabit, setSelectedHabit } }>
+            <Toaster position="top-right" richColors />
             { children }
         </HabitContext.Provider>
     )

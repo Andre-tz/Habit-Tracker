@@ -5,6 +5,7 @@ import HabitDay from "./components/HabitDay";
 import HabitCheck from "./components/habit-info/HabitCheck";
 import "./styles/App.css"
 import upperCase from "./helper/upperCase";
+import PageAnimation from "./components/animation/PageAnimation"
 
 function App() {
 
@@ -33,7 +34,7 @@ function App() {
 	const daysWeek = [ "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo" ];
 
   return (
-	<>
+	<PageAnimation>
 		<div id="main-container">
 
 			<h1 className="title">Bienvenido a Habit Tracker</h1>
@@ -42,9 +43,9 @@ function App() {
 				<NavLink to = "/habit-form"><button className="button-main view">Crear Habitos</button></NavLink>
 			</ul>
 
-		</div>
-		
-		<section className="daily-habits">
+			</div>
+
+			<section className="daily-habits">
 
 				{ habits.length == 0? 
 
@@ -62,8 +63,8 @@ function App() {
 				}
 
 			</section>
-
-	</>
+			
+	</PageAnimation>
     
   )
 }
