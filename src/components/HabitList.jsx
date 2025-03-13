@@ -45,7 +45,7 @@ const HabitList = ( ) => {
                         
                         habits.length > 0 ? ( 
 
-                        habits.map( ({ id, name, days, status, note } ) =>(
+                        habits.map( ({ id, name, days, status, note } , index ) =>(
                             <HabitItem
                                 key={ id }
                                 id= { id }
@@ -60,7 +60,8 @@ const HabitList = ( ) => {
                                 //clase dinamica ingresada para que el usuario se de cuenta de el habito que esta buscando
                                 dynamicClass={ 
                                     upperCase( name ) === selectedHabit? "highlight" : "" 
-                                } />
+                                }
+                                index={ index } />
                     )))
                     : <p className='message'> No hay hábitos para cargar </p>
                     } 

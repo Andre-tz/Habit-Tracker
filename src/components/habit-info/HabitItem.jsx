@@ -1,13 +1,18 @@
 import { useContext } from "react";
 import "../../styles/HabitItem.css"
-import { HabitContext } from "../../context/HabitContext";
+import { HabitContext } from "../../context/HabitContext"
+import { motion } from "framer-motion";
 
-const HabitItem = ( { id, nombre, frecuencia, estado, nota, dynamicClass } ) => {
+const HabitItem = ( { id, nombre, frecuencia, estado, nota, dynamicClass, index } ) => {
 
     const { handleDelete } = useContext( HabitContext );
 
     return (
-        <div className={`${ dynamicClass} habit-card`} >
+        <motion.div className={`${ dynamicClass} habit-card`} 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2, delay: index * 0.1 }}>
 
             <h1 className="habit-title">{nombre}</h1>
 
@@ -31,7 +36,7 @@ const HabitItem = ( { id, nombre, frecuencia, estado, nota, dynamicClass } ) => 
 
             <button onClick={ ( ) => { handleDelete( id ) } } className="delente-habit">Eliminar</button>
 
-        </div>
+        </motion.div>
     )
 }
 
