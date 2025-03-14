@@ -3,13 +3,13 @@ import { HabitContext } from '../context/HabitContext.jsx';
 import HabitItem from "./habit-info/HabitItem.jsx"
 import "../styles/HabitList.css"
 import upperCase from '../helper/upperCase.js';
-import { motion } from 'framer-motion';
 import PageAnimation from './animation/PageAnimation.jsx';
+import { IoArrowBackOutline } from "react-icons/io5";
+import Icons from './Icons.jsx';
 
 const HabitList = ( ) => {
     
     const { habits, loading, selectedHabit, setSelectedHabit } = useContext( HabitContext )
-
 
     //Con este useEffect busco en el localStorage  el habito que muest
     useEffect ( ( ) =>{
@@ -35,6 +35,12 @@ const HabitList = ( ) => {
 
     return (
         <PageAnimation>
+            <Icons
+                id= "back"
+                icon={ <IoArrowBackOutline /> }
+                content="Ir atras"
+                navigateTo="/"
+            />
             <section id='habit-list'>
                     
                     <h1 className='title'>Mi lista de habitos</h1>

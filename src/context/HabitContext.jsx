@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Toaster } from "sonner";
+import CurrentDay from "./CurrentDay";
 
 const HabitContext = createContext( );
 
@@ -8,6 +9,7 @@ const HabitContextProvider = ( {children } ) => {
 
     const [ habits, setHabits ] = useState( [] );
     const [ loading, setLoading ] = useState ( true )
+    const currentDay = CurrentDay();
 
     // usare este estado para guardar cualquier habito y usarlo mas adelante
     const [ selectedHabit, setSelectedHabit ] = useState( "" );
@@ -65,7 +67,7 @@ const HabitContextProvider = ( {children } ) => {
     }
 
     return (
-        <HabitContext.Provider value={ { habits, loading, addHabits, handleDelete, selectedHabit, setSelectedHabit } }>
+        <HabitContext.Provider value={ { habits, loading, addHabits, handleDelete, selectedHabit, setSelectedHabit, currentDay } }>
             <Toaster position="top-right" richColors />
             { children }
         </HabitContext.Provider>

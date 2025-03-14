@@ -3,6 +3,8 @@ import { HabitContext } from "../context/HabitContext.jsx"
 import "../styles/HabitForm.css"
 import { toast } from "sonner";
 import PageAnimation from "./animation/PageAnimation.jsx";
+import Icons from "./Icons.jsx";
+import { IoArrowBackOutline } from "react-icons/io5";
 
 const HabitForms = (  ) => {
 
@@ -75,6 +77,13 @@ const HabitForms = (  ) => {
 
     return (
         <PageAnimation>
+            <Icons 
+                id= "back"
+                icon={ <IoArrowBackOutline /> }
+                content="Ir atras"
+                navigateTo="/"
+            />
+            
             <section id="habit-form" className="width-container">
                 <h1 className="title">Añade un hábito a tu vida</h1>
 

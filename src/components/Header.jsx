@@ -1,23 +1,24 @@
 import { IoLanguageOutline } from "react-icons/io5";
 import { MdNightsStay } from "react-icons/md";
 import { IoIosColorPalette } from "react-icons/io";
-import { Tooltip } from "react-tooltip";
+import Icons from "./Icons";
 
 const Header = ( ) =>{
 
+    //creo un array que contenga objetos que mantengan la informacion de cafa icono que usare para mi aplicacion
     const tooltips = [
         {
-            id: "tooltips-lang",
+            id: "lang",
             icon: <IoLanguageOutline />,
             content: "Cambiar idioma"
         },
         {
-            id: "tooltips-night",
+            id: "night",
             icon: <MdNightsStay />,
             content: "Cambiar a oscuro"
         },
         {
-            id: "tooltips-theme",
+            id: "theme",
             icon: <IoIosColorPalette />,
             content: "Cambiar tema"
         }
@@ -27,13 +28,17 @@ const Header = ( ) =>{
             <h1 id="name-app"> Habit Tracker</h1>
 
             <ul id="user-options">
-
-                { tooltips.map( ( { id, icon, content } ) =>(
-                    <li key={ id } data-tooltip-id={ id } className="item">
-                        { icon }
-                        <Tooltip id={ id } place="top" content={ content } />
-                    </li>
-                ) ) }
+            
+                { //hago un map para introducir los iconos asi como su informacion dinamicamente
+                    tooltips.map( ( { id, icon, content } ) =>(
+                        <Icons 
+                        key={ id }
+                            id = { id }
+                            icon={ icon }
+                            content={ content }
+                        />
+                    ) ) 
+                }
 
             </ul>
             

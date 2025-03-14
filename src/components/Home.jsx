@@ -9,7 +9,7 @@ import upperCase from "../helper/upperCase";
 
 function Home() {
 
-	const { habits } = useContext( HabitContext )
+	const { habits, currentDay } = useContext( HabitContext )
 
 	//Esta funcion se encargar de dividir todos los habitos por dia
 	const splitHabits = ( day, habitsInfo ) =>{
@@ -23,6 +23,9 @@ function Home() {
 				<HabitCheck
 				key={ habito.id } 
 				name={ upperCase( habito.name ) }
+				state = { 
+					day == currentDay? "Pendiente" : "No completado" 
+				}
 				/>
 			) )
 		)
