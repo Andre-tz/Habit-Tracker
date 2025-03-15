@@ -11,26 +11,36 @@ const HabitContextProvider = ( {children } ) => {
     const [ loading, setLoading ] = useState ( true )
     const currentDay = CurrentDay();
 
+    //estos datos del usuario tambien se guardaran en el localStorage 
+    const [ userData, setUserData ] = useState( {
+        language: "ES",
+        theme: "#ffffff",
+        nightMode: false
+    })
+
     // usare este estado para guardar cualquier habito y usarlo mas adelante
     const [ selectedHabit, setSelectedHabit ] = useState( "" );
 
-    //este useEffect se encarga de traer todos los datos el localStorage a mi array de habilidades
+    //este useEffect se encarga de traer todos los datos el localStorage a mi aplicacion
     useEffect( () =>{
-
-        const storeHabits = localStorage.getItem( "habitos") 
-        if( storeHabits ) {
             try {
-                setHabits( JSON.parse( storeHabits ) )
+                //trayendo mis habitos
+                const storeHabits = localStorage.getItem( "habitos") 
+                //trayendo los datos del usuario
+                const storeUserData = localStorage.getItem( "userData" )
+
+                setHabits(  storeHabits? JSON.parse( storeHabits ) : [] )
+
+                if( !storeUserData ){
+                    localStorage.setItem( "userData" , JSON.stringify( userData ) )
+                }else{
+                    setUserData( JSON.parse( storeUserData ))
+                }  
             } catch (error) {
-                console.error( "Error al obtener habitos", error )
+                console.error( "Error al obtener habitos u obtener datos del usuario", error )
                 setHabits( [] )
             }
-            
-        }else{
-            setHabits( [] )
-        }
-
-        setLoading( false )
+           setLoading( false )
     }, [])
 
     //con useEffect se actualiza el localStorage cuando no se esta utilizando el addHabits.
@@ -38,7 +48,7 @@ const HabitContextProvider = ( {children } ) => {
         if( habits.length > 0 ){
             localStorage.setItem( "habitos", JSON.stringify( habits ))
         } else{
-            localStorage.clear()
+            localStorage.removeItem("habitos")
         }
     }, [ habits ])
 
@@ -67,7 +77,7 @@ const HabitContextProvider = ( {children } ) => {
     }
 
     return (
-        <HabitContext.Provider value={ { habits, loading, addHabits, handleDelete, selectedHabit, setSelectedHabit, currentDay } }>
+        <HabitContext.Provider value={ { habits, loading, addHabits, handleDelete, selectedHabit, setSelectedHabit, currentDay, userData, setUserData } }>
             <Toaster position="top-right" richColors />
             { children }
         </HabitContext.Provider>
