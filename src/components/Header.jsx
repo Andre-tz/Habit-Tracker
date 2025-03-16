@@ -2,13 +2,16 @@ import { IoLanguageOutline } from "react-icons/io5";
 import { MdNightsStay } from "react-icons/md";
 import { IoIosColorPalette } from "react-icons/io";
 import Icons from "./Icons";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { HabitContext } from "../context/HabitContext";
+import ThemePicker from "./ThemePicker";
 
 const Header = ( ) =>{
 
     //usando useContext para los datos del usuario 
     const { setUserData } = useContext( HabitContext );
+    //estado para mostrar el modal de colores
+    const [ showThemePicker, setShowThemePicker ]= useState( false )
     
     //esta funcion se encargara  de actualizar los datos del usuario y llevarlos  al localStorage
     const saveData = ( propiedad, value ) =>{
@@ -16,7 +19,7 @@ const Header = ( ) =>{
         setUserData( prevData =>{
             const currenData = {
                 ...prevData,
-                [propiedad ] : value
+                [propiedad ] : [ value ]
             }
             localStorage.setItem( "userData", JSON.stringify( currenData ))
             return currenData;
@@ -41,7 +44,7 @@ const Header = ( ) =>{
             id: "theme",
             icon: <IoIosColorPalette />,
             content: "Cambiar tema",
-           action: ( ) =>{ saveData( "theme", "#000000" ) }
+           action: ( ) =>{ setShowThemePicker(!showThemePicker ) }
         }
     ]
     return (
@@ -62,8 +65,14 @@ const Header = ( ) =>{
                     ) ) 
                 }
 
+                { //dependiendo el estado se mostrara o no mi colorPicker
+                    showThemePicker && 
+                    <ThemePicker
+                        // con esto mando el color como parametro y le agrego ese valor a los datos del usuario
+                        onChange = { ( color )  => saveData ("theme", color ) } /> 
+                }
             </ul>
-            
+
         </header>
     )
 }

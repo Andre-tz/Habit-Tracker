@@ -54,27 +54,23 @@ const HabitContextProvider = ( {children } ) => {
 
     //agregando los habitos a mi lista de habitos y a su vez los estoy guardando en mi local storage
     const addHabits = habit => {
-        setHabits(prevHabits => {
-            const updatedHabits = [...prevHabits, habit];
-    
-            localStorage.setItem("habitos", JSON.stringify(updatedHabits)); 
-    
-            return updatedHabits;
-        });
+        setHabits( prevHabits =>  [...prevHabits, habit ] );
     };
 
     //funcion para eliminar los habitos al usar un boton
     const handleDelete = ( idHabit ) =>{
-        setHabits( prevHabits =>{
-            const updateHabits= prevHabits.filter( habit => habit.id !== idHabit)   
-
-            //actualizando localStorage
-            localStorage.setItem( "habitos", JSON.stringify( updateHabits ));
-
-            toast.success( "El hábito seleccionado ha sido eliminado" )
-            return updateHabits;
-        })
+        setHabits( prevHabits => prevHabits.filter( habit => habit.id !== idHabit) )
+        toast.success( "El hábito seleccionado ha sido eliminado" )
     }
+
+    //useEffect que se encargara de cargar los datos del usuarios guardado en el localStorage
+    useEffect( ()=>{
+        //con esto cambio la propiedad en mis estilos que coincida con el nombre dado con el valor dado
+        document.documentElement.style.setProperty( "--theme-color", userData.theme )
+
+        //esta dependencia es solo por ahora, ya que le agregaré mas cosas 
+    }, [ userData.theme ])
+
 
     return (
         <HabitContext.Provider value={ { habits, loading, addHabits, handleDelete, selectedHabit, setSelectedHabit, currentDay, userData, setUserData } }>
