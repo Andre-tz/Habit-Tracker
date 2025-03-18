@@ -11,7 +11,9 @@ const Header = ( ) =>{
     //usando useContext para los datos del usuario 
     const { setUserData } = useContext( HabitContext );
     //estado para mostrar el modal de colores
-    const [ showThemePicker, setShowThemePicker ]= useState( false )
+    const [ showThemePicker, setShowThemePicker ]= useState( false );
+
+    const[ activeNightMode, setActiveNightMode ] = useState( false );
     
     //esta funcion se encargara  de actualizar los datos del usuario y llevarlos  al localStorage
     const saveData = ( propiedad, value ) =>{
@@ -38,7 +40,9 @@ const Header = ( ) =>{
             id: "night",
             icon: <MdNightsStay />,
             content: "Cambiar a oscuro",
-           action: ( ) =>{ saveData( "nightMode", true ) }
+           action: ( ) =>{ saveData( "nightMode", true );
+            document.body.classList.toggle( "nightMode")
+            }
         },
         {
             id: "theme",
@@ -69,7 +73,8 @@ const Header = ( ) =>{
                     showThemePicker && 
                     <ThemePicker
                         // con esto mando el color como parametro y le agrego ese valor a los datos del usuario
-                        onChange = { ( color )  => saveData ("theme", color ) } /> 
+                        onChange = { ( color )  => saveData ("theme", color ) } 
+                       onClose={ ()=> setShowThemePicker( false ) }/> 
                 }
             </ul>
 
