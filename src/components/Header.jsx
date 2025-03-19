@@ -2,7 +2,7 @@ import { IoLanguageOutline } from "react-icons/io5";
 import { MdNightsStay } from "react-icons/md";
 import { IoIosColorPalette } from "react-icons/io";
 import Icons from "./Icons";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { HabitContext } from "../context/HabitContext";
 import ThemePicker from "./ThemePicker";
 
@@ -13,15 +13,24 @@ const Header = ( ) =>{
     //estado para mostrar el modal de colores
     const [ showThemePicker, setShowThemePicker ]= useState( false );
 
-    const[ activeNightMode, setActiveNightMode ] = useState( false );
+    const[ activeNightMode, setActiveNightMode ] = useState( 
+        ( ) =>{
+            return JSON.parse( localStorage.getItem( "userData" ) )?.nightMode || false;
+        }
+    );
     
+    useEffect( ( ) =>{
+        saveData( "nightMode", activeNightMode )
+        activeNightMode === true? document.body.classList.add( "nightMode" ) : document.body.classList.remove( "nightMode" )
+    }, [ activeNightMode ])
+
     //esta funcion se encargara  de actualizar los datos del usuario y llevarlos  al localStorage
     const saveData = ( propiedad, value ) =>{
 
         setUserData( prevData =>{
             const currenData = {
                 ...prevData,
-                [propiedad ] : [ value ]
+                [propiedad ] : value 
             }
             localStorage.setItem( "userData", JSON.stringify( currenData ))
             return currenData;
@@ -40,9 +49,7 @@ const Header = ( ) =>{
             id: "night",
             icon: <MdNightsStay />,
             content: "Cambiar a oscuro",
-           action: ( ) =>{ saveData( "nightMode", true );
-            document.body.classList.toggle( "nightMode")
-            }
+           action: ( ) =>{ setActiveNightMode( prevState => !prevState)}
         },
         {
             id: "theme",

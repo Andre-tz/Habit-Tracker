@@ -12,11 +12,16 @@ const HabitContextProvider = ( {children } ) => {
     const currentDay = CurrentDay();
 
     //estos datos del usuario tambien se guardaran en el localStorage 
-    const [ userData, setUserData ] = useState( {
-        language: "ES",
-        theme: "#ffffff",
-        nightMode: false
-    })
+    const [ userData, setUserData ] = useState( 
+        ()=>{
+            const storedValue = localStorage.getItem( "userData" )
+            return storedValue? JSON.parse( storedValue ) :  {
+                language: "ES",
+                theme: "#000000",
+                nightMode: false
+            }
+        }
+    )
 
     // usare este estado para guardar cualquier habito y usarlo mas adelante
     const [ selectedHabit, setSelectedHabit ] = useState( "" );
@@ -26,16 +31,7 @@ const HabitContextProvider = ( {children } ) => {
             try {
                 //trayendo mis habitos
                 const storeHabits = localStorage.getItem( "habitos") 
-                //trayendo los datos del usuario
-                const storeUserData = localStorage.getItem( "userData" )
-
                 setHabits(  storeHabits? JSON.parse( storeHabits ) : [] )
-
-                if( !storeUserData ){
-                    localStorage.setItem( "userData" , JSON.stringify( userData ) )
-                }else{
-                    setUserData( JSON.parse( storeUserData ))
-                }  
             } catch (error) {
                 console.error( "Error al obtener habitos u obtener datos del usuario", error )
                 setHabits( [] )
