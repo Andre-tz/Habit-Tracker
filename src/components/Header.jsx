@@ -36,7 +36,7 @@ const Header = ( ) =>{
             return currenData;
         }) 
     }
-
+    
     //creo un array que contenga objetos que mantengan la informacion de cafa icono que usare para mi aplicacion
     const tooltips = [
         {
