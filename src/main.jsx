@@ -6,7 +6,7 @@ import HabitList from './components/HabitList.jsx'
 import { HabitContextProvider } from './context/HabitContext.jsx'
 import "../src/styles/index.css"
 import App from "./App.jsx"
-
+import "./locales/i18n.js"; // importando la configuracion i18next
 createRoot(document.getElementById('root')).render(
 
 	<HabitContextProvider>

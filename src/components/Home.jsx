@@ -5,9 +5,14 @@ import HabitDay from "./HabitDay";
 import HabitCheck from "./habit-info/HabitCheck";
 import "../styles/Home.css"
 import upperCase from "../helper/upperCase";
+import { useTranslation } from "react-i18next";
 
 
 function Home() {
+
+	//hook para cambiar idioma
+	const { t } = useTranslation();
+
 
 	const { habits, currentDay } = useContext( HabitContext )
 
@@ -40,7 +45,7 @@ function Home() {
 	<>
 		<div id="main-container">
 
-		<h1 className="title">Bienvenido a Habit Tracker</h1>
+		<h1 className="title">{ t( "welcome" ) }</h1>
 		<ul className="menu">
 			<NavLink to= "/habit-list"><button className="button-main create">Ver Habitos</button></NavLink>
 			<NavLink to = "/habit-form"><button className="button-main view">Crear Habitos</button></NavLink>

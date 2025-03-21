@@ -1,6 +1,29 @@
 {
     "title": "Rastreador de Hábitos",
     "welcome": "Bienvenido a tu Rastreador de Hábitos",
-    "change_language": "Cambiar Idioma"
+    "change_language": "Cambiar Idioma",
+    "view habits": "Ver Hábitos",
+    "create_habits": "Crear Hábitos",
+
+    "form":{
+      	"title_form": "Añade un hábito a tu vida",
+      	"habit_name": "Nombre del hábito",
+      	"frecuency": "Frecuencia ( Selecciona la cantidad )",
+      	"notes": "Notas Adicionales",
+		"button_create": "Crear Hábito"
+    },
+
+	"habit_list":{
+		"frecuency": "Frecuencia",
+		"status": "Estado",
+		"note": "Nota",
+		"button_delete": "Eliminar"
+	},
+
+	"icons":{
+		"language" : "Cambiar lenguaje",
+		"night_mode": "Usar modo noche",
+		"theme": "Cambiar tema"
+	}
   }
   

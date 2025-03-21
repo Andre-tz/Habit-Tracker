@@ -5,11 +5,12 @@ import Icons from "./Icons";
 import { useContext, useEffect, useState } from "react";
 import { HabitContext } from "../context/HabitContext";
 import ThemePicker from "./ThemePicker";
+import { useTranslation } from "react-i18next";
 
 const Header = ( ) =>{
 
     //usando useContext para los datos del usuario 
-    const { setUserData } = useContext( HabitContext );
+    const { userData, setUserData } = useContext( HabitContext );
     //estado para mostrar el modal de colores
     const [ showThemePicker, setShowThemePicker ]= useState( false );
 
@@ -18,7 +19,16 @@ const Header = ( ) =>{
             return JSON.parse( localStorage.getItem( "userData" ) )?.nightMode || false;
         }
     );
+
+    //nuevo Hook para las traducciones
+    const { t, i18n } = useTranslation();
     
+
+    useEffect( ()=>{
+        i18n.changeLanguage( userData.language )
+    },[userData])
+
+    //useEffect para cambiar obtener guardar en el local el modo usado e implementarlo
     useEffect( ( ) =>{
         saveData( "nightMode", activeNightMode )
         activeNightMode === true? document.body.classList.add( "nightMode" ) : document.body.classList.remove( "nightMode" )
@@ -43,7 +53,13 @@ const Header = ( ) =>{
             id: "lang",
             icon: <IoLanguageOutline />,
             content: "Cambiar idioma",
-           action: ( ) =>{ saveData( "language", "EN" ) }
+           action: ( ) =>{ 
+            const currentLanguage = JSON.parse( localStorage.getItem( "userData" ) )?.language
+            const newLanguage = currentLanguage === "es"? "en" : "es";
+
+            saveData( "language", newLanguage)
+        }
+
         },
         {
             id: "night",

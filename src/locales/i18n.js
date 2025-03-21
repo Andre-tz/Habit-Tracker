@@ -20,7 +20,8 @@ i18n
             en: { translation: en },
             es: { translation: es }
         },
-        fallbackLng: "es", // idioma por defecto
+        fallbackLng: "es", // idioma por defecto 
+        lng: JSON.parse(localStorage.getItem( "userData"))?.language || "es",
         interpolation: { escapeValue : false } // evitamos problemas con caracteres especiales cuando se usan variables dentro de los textos
     } );
 
