@@ -1,6 +1,65 @@
 {
     "title": "Habit Tracker",
     "welcome": "Welcome to your Habit Tracker",
-    "change_language": "Change Language"
-  }
-  
+    "change_language": "Change Language",
+    "view_habits": "View Habits",
+    "create_habits": "Create Habits",
+
+	"habit": {
+		"complete": "Completed",
+		"no_complete": "Not completed",
+		"pendiente": "Pending"
+	},
+
+    "form": {
+        "title_form": "Add a Habit to your life",
+        "habit_name": "Habit Name",
+        "frecuency": "Frequency ( Select the days ) :",
+        "notes": "Additional Notes",
+        "button_create": "Create Habit",
+		"place_holder": "Add a comment"
+    },
+
+    "habit_list": {
+        "title": "My Habit List",
+        "frecuency": "Frequency",
+        "status": "Status",
+        "note": "Note",
+        "button_delete": "Delete"
+    },
+
+    "icons": {
+        "language": "Change Language",
+        "night_mode": "Use Night Mode",
+        "theme": "Change Theme",
+        "go_back": "Go back"
+    },
+
+    "days": {
+        "full_name": {
+            "Mon": "Monday",
+            "Tue": "Tuesday",
+            "Wed": "Wednesday",
+            "Thu": "Thursday",
+            "Fri": "Friday",
+            "Sat": "Saturday",
+            "Sun": "Sunday"
+        },
+
+        "short_name": {
+            "Mon": "Mon",
+            "Tue": "Tue",
+            "Wed": "Wed",
+            "Thu": "Thu",
+            "Fri": "Fri",
+            "Sat": "Sat",
+            "Sun": "Sun"
+        } 
+    },
+
+	"tooltips": {
+		"null_name": "The habit name is missing",
+		"null_day": "Select at least one day",
+		"habit_success": "The habit has been created"
+	}
+}

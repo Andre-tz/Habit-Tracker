@@ -5,9 +5,11 @@ import { toast } from "sonner";
 import PageAnimation from "./animation/PageAnimation.jsx";
 import Icons from "./Icons.jsx";
 import { IoArrowBackOutline } from "react-icons/io5";
+import { useTranslation } from "react-i18next";
 
 const HabitForms = (  ) => {
 
+    const { t } = useTranslation( );
     //contexto que se encargará de usar mi lista de habitos y la funcion para agregarlos
     const { addHabits } = useContext( HabitContext );
 
@@ -48,17 +50,17 @@ const HabitForms = (  ) => {
         e.preventDefault();
 
         if( !habitData.name ){
-            toast.warning( "Falta el nombre del hábito")
+            toast.warning( t( "tooltips.null_name" ) )
             return
         }
 
         if (habitData.days.length === 0) {
-            toast.warning("Selecciona al menos un día.");
+            toast.warning( t( "tooltips.null_day" ) );
             return;
         }
 
         addHabits( habitData );
-        toast.success( "Su hábito ha sido guardado" )
+        toast.success( t( "tooltips.habit_success" ) )
         clearForm();
     }
    
@@ -80,33 +82,33 @@ const HabitForms = (  ) => {
             <Icons 
                 id= "back"
                 icon={ <IoArrowBackOutline /> }
-                content="Ir atras"
+                content={ t("icons.go_back")}
                 navigateTo="/"
             />
             
             <section id="habit-form" className="width-container">
-                <h1 className="title">Añade un hábito a tu vida</h1>
+                <h1 className="title">{ t ("form.title_form") }</h1>
 
                 <form>
 
                     <div className="field">
                         <label>
-                            Nombre del hábito
+                            { t( "form.habit_name" ) }
                             <input onChange={ handleInput } type="text" name="name"  placeholder="Ejm: Saltar soga" value={ habitData.name}/>
                         </label>
                     </div>
 
                     <div className="field">
-                        <p className="field-title">Frecuencia ( Selecciona la cantidad ) :</p>
+                        <p className="field-title">{ t( "form.frecuency" ) }</p>
                         
                         <div className="button-container">
-                            <button type="button" className={ `button-days ${habitData.days.includes( "Lunes" )? "selected" : "" }` } name="Lunes" onClick={ handleDays }>Lun</button>
-                            <button type="button" className={ `button-days ${habitData.days.includes( "Martes" )? "selected" : "" }` } name="Martes" onClick={ handleDays }>Mar</button>
-                            <button type="button" className={ `button-days ${habitData.days.includes( "Miércoles" )? "selected" : "" }` } name="Miércoles" onClick={ handleDays }>Mie</button>
-                            <button type="button" className={ `button-days ${habitData.days.includes( "Jueves" )? "selected" : "" }` } name="Jueves" onClick={ handleDays }>Jue</button>
-                            <button type="button" className={ `button-days ${habitData.days.includes( "Viernes" )? "selected" : "" }` } name="Viernes" onClick={ handleDays }>Vie</button>
-                            <button type="button" className={ `button-days ${habitData.days.includes( "Sábado" )? "selected" : "" }` } name="Sábado" onClick={ handleDays }>Sab</button>
-                            <button type="button" className={ `button-days ${habitData.days.includes( "Domingo" )? "selected" : "" }` } name="Domingo" onClick={ handleDays }>Dom</button>
+                            <button type="button" className={ `button-days ${habitData.days.includes( "Lunes" )? "selected" : "" }` } name="Lunes" onClick={ handleDays }>{ t("days.short_name.Mon" ) }</button>
+                            <button type="button" className={ `button-days ${habitData.days.includes( "Martes" )? "selected" : "" }` } name="Martes" onClick={ handleDays }>{ t("days.short_name.Thu" ) }</button>
+                            <button type="button" className={ `button-days ${habitData.days.includes( "Miércoles" )? "selected" : "" }` } name="Miércoles" onClick={ handleDays }>{ t("days.short_name.Wed" ) }</button>
+                            <button type="button" className={ `button-days ${habitData.days.includes( "Jueves" )? "selected" : "" }` } name="Jueves" onClick={ handleDays }>{ t("days.short_name.Tue" ) }</button>
+                            <button type="button" className={ `button-days ${habitData.days.includes( "Viernes" )? "selected" : "" }` } name="Viernes" onClick={ handleDays }>{ t("days.short_name.Fri" ) }</button>
+                            <button type="button" className={ `button-days ${habitData.days.includes( "Sábado" )? "selected" : "" }` } name="Sábado" onClick={ handleDays }>{ t("days.short_name.Sat" ) }</button>
+                            <button type="button" className={ `button-days ${habitData.days.includes( "Domingo" )? "selected" : "" }` } name="Domingo" onClick={ handleDays }>{ t("days.short_name.Sun" ) }</button>
                         </div>
                         
                     </div>
@@ -120,12 +122,12 @@ const HabitForms = (  ) => {
 
                     <div className="field">
                         <label>
-                            Notas Adicionales:
-                            <textarea onChange={ handleInput } name="note" value={ habitData.note} placeholder="Agregar algun comentario"></textarea>
+                            { t( "form.notes" ) }
+                            <textarea onChange={ handleInput } name="note" value={ habitData.note} placeholder={ t( "form.place_holder" ) }></textarea>
                         </label>
                     </div>
 
-                        <button id = "submit" onClick={ handleSubmit } type="submit">Crear</button>
+                        <button id = "submit" onClick={ handleSubmit } type="submit">{ t( "form.button_create" ) }</button>
 
                 </form>
 

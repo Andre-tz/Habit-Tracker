@@ -6,9 +6,12 @@ import upperCase from '../helper/upperCase.js';
 import PageAnimation from './animation/PageAnimation.jsx';
 import { IoArrowBackOutline } from "react-icons/io5";
 import Icons from './Icons.jsx';
+import { useTranslation } from 'react-i18next';
+import dayMapping from '../helper/dayMapping.js';
 
 const HabitList = ( ) => {
     
+    const { t } = useTranslation();
     const { habits, loading, selectedHabit, setSelectedHabit } = useContext( HabitContext )
 
     //Con este useEffect busco en el localStorage  el habito que muest
@@ -38,12 +41,12 @@ const HabitList = ( ) => {
             <Icons
                 id= "back"
                 icon={ <IoArrowBackOutline /> }
-                content="Ir atras"
+                content={ t("icons.go_back")}
                 navigateTo="/"
             />
             <section id='habit-list'>
                     
-                    <h1 className='title'>Mi lista de habitos</h1>
+                    <h1 className='title'>{ t("habit_list.title" ) }</h1>
 
                     <div className="habits-container">
 
@@ -58,10 +61,13 @@ const HabitList = ( ) => {
                                 nombre = { upperCase( name ) }
                                 frecuencia = { 
                                     days
+                                    //ordenando los dias
                                         .sort( ( a, b ) => diasOrdenados.indexOf( a ) - diasOrdenados.indexOf( b ) )
+                                    //traduciendolos
+                                        .map( day => t( `days.full_name.${ dayMapping[ day ] }`))
+                                    //uniendolos
                                         .join( " - ") 
                                     }
-                                estado = { status }
                                 nota = { note }
                                 //clase dinamica ingresada para que el usuario se de cuenta de el habito que esta buscando
                                 dynamicClass={ 

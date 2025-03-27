@@ -2,18 +2,26 @@
     "title": "Rastreador de Hábitos",
     "welcome": "Bienvenido a tu Rastreador de Hábitos",
     "change_language": "Cambiar Idioma",
-    "view habits": "Ver Hábitos",
+    "view_habits": "Ver Hábitos",
     "create_habits": "Crear Hábitos",
 
+	"habit":{
+		"complete": "Completado",
+		"no_complete": "No completado",
+		"pendiente": "Pendiente"
+	}, 
+	
     "form":{
       	"title_form": "Añade un hábito a tu vida",
       	"habit_name": "Nombre del hábito",
       	"frecuency": "Frecuencia ( Selecciona la cantidad )",
       	"notes": "Notas Adicionales",
-		"button_create": "Crear Hábito"
+		"button_create": "Crear Hábito",
+		"place_holder": "Agregar algun comentario"
     },
 
 	"habit_list":{
+		"title": " Mi Lista de Hábitos",
 		"frecuency": "Frecuencia",
 		"status": "Estado",
 		"note": "Nota",
@@ -23,7 +31,35 @@
 	"icons":{
 		"language" : "Cambiar lenguaje",
 		"night_mode": "Usar modo noche",
-		"theme": "Cambiar tema"
+		"theme": "Cambiar tema", 
+		"go_back" : "Ir atras"
+	},
+
+	"days":{
+		"full_name": {
+        	"Mon": "Lunes",
+        	"Tue": "Martes",
+        	"Wed": "Miércoles",
+        	"Thu": "Jueves",
+        	"Fri": "Viernes",
+        	"Sat": "Sábado",
+        	"Sun": "Domingo"
+    },
+    	"short_name": {
+        	"Mon": "Lun",
+        	"Tue": "Mar",
+        	"Wed": "Mié",
+        	"Thu": "Jue",
+        	"Fri": "Vie",
+        	"Sat": "Sáb",
+        	"Sun": "Dom"
+    	}
+	},
+
+	"tooltips":{
+		"null_name": "Falta el nombre del hábito",
+		"null_day": "Selecciona al menos un día",
+		"habit_success": "El hábito ha sido creado"
 	}
   }
   

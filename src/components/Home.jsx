@@ -6,6 +6,8 @@ import HabitCheck from "./habit-info/HabitCheck";
 import "../styles/Home.css"
 import upperCase from "../helper/upperCase";
 import { useTranslation } from "react-i18next";
+import dayMapping from "../helper/dayMapping"
+import HabitPhrases from "./HabitPhrases";
 
 
 function Home() {
@@ -29,26 +31,25 @@ function Home() {
 				key={ habito.id } 
 				name={ upperCase( habito.name ) }
 				state = { 
-					day == currentDay? "Pendiente" : "No completado" 
+					day == currentDay? t( "habit.pendiente" ) : t( "habit.no_complete") 
 				}
 				/>
 			) )
 		)
 	};
 	
-
-
 	//este array contiene los dias de la semana que despues usaremos con map
-	const daysWeek = [ "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo" ];
+	const daysWeek = Object.keys( dayMapping );
 
   return (
 	<>
 		<div id="main-container">
 
 		<h1 className="title">{ t( "welcome" ) }</h1>
+		<HabitPhrases />
 		<ul className="menu">
-			<NavLink to= "/habit-list"><button className="button-main create">Ver Habitos</button></NavLink>
-			<NavLink to = "/habit-form"><button className="button-main view">Crear Habitos</button></NavLink>
+			<NavLink to= "/habit-list"><button className="button-main create">{ t( "view_habits" ) }</button></NavLink>
+			<NavLink to = "/habit-form"><button className="button-main view">{ t( "create_habits" ) }</button></NavLink>
 		</ul>
 
 		</div>
@@ -64,7 +65,7 @@ function Home() {
 					.map( dia => (
 						<HabitDay 
 							key={ dia }
-							day={ dia }
+							day={ t( `days.full_name.${ dayMapping[ dia ]}`) }
 							habits = { splitHabits ( dia, habits )}
 						/>
 				)) 

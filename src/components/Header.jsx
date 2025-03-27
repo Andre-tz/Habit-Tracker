@@ -52,7 +52,7 @@ const Header = ( ) =>{
         {
             id: "lang",
             icon: <IoLanguageOutline />,
-            content: "Cambiar idioma",
+            content:  t( "icons.language" ) ,
            action: ( ) =>{ 
             const currentLanguage = JSON.parse( localStorage.getItem( "userData" ) )?.language
             const newLanguage = currentLanguage === "es"? "en" : "es";
@@ -64,13 +64,13 @@ const Header = ( ) =>{
         {
             id: "night",
             icon: <MdNightsStay />,
-            content: "Cambiar a oscuro",
+            content: t( "icons.night_mode" ),
            action: ( ) =>{ setActiveNightMode( prevState => !prevState)}
         },
         {
             id: "theme",
             icon: <IoIosColorPalette />,
-            content: "Cambiar tema",
+            content: t( "icons.theme" ),
            action: ( ) =>{ setShowThemePicker(!showThemePicker ) }
         }
     ]
