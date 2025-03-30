@@ -61,5 +61,49 @@
 		"null_name": "The habit name is missing",
 		"null_day": "Select at least one day",
 		"habit_success": "The habit has been created"
-	}
+	},
+
+    "phrases": {
+        "key_1": {
+            "text": "Small changes make a big difference.",
+            "author": "James Clear"
+        },
+        "key_2": {
+            "text": "We are what we repeatedly do.",
+            "author": "Aristotle"
+        },
+        "key_3": {
+            "text": "Motivation is what gets you started. Habit is what keeps you going.",
+            "author": "Jim Ryun"
+          },
+        "key_4": {
+            "text": "You can't improve what you don't measure.",
+            "author": "Peter Drucker"
+        },
+        "key_5": {
+            "text": "Excellence is not an act, but a habit.",
+            "author": "Will Durant"
+        },
+        "key_6": {
+            "text": "The future depends on what you do today.",
+            "author": "Mahatma Gandhi"
+        },
+        "key_7": {
+            "text": "Watch your thoughts, for they will become your words. Watch your words, for they will become your actions. Watch your actions, for they will become your habits.",
+            "author": "Lao Tzu"
+        },
+        "key_8": {
+            "text": "Success is the sum of small efforts repeated day in and day out.",
+            "author": "Robert Collier"
+        },
+        "key_9": {
+            "text": "We first make our habits, then our habits make us.",
+            "author": "John Dryden"
+        },
+        "key_10": {
+            "text": "Change will not come if we wait for some other person or some other time. We are the ones we've been waiting for. We are the change that we seek.",
+            "author": "Barack Obama"
+        }
+    }
+      
 }

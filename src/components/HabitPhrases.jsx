@@ -1,40 +1,35 @@
 import { useEffect, useState } from "react";
 import ChangeText from "./animation/ChangeText";
+import { useTranslation } from "react-i18next";
+
 const HabitPhrases = ( ) =>{
 
-    const frases = [
-        { text: "Los pequeños cambios hacen una gran diferencia.", author: "James Clear" },
-        { text: "El éxito es la suma de pequeños esfuerzos repetidos a diario.", author: "Robert Collier" },
-        { text: "La disciplina tarde o temprano supera a la motivación.", author: "Jon Acuff" },
-        { text: "No esperes a estar listo, empieza ahora.", author: "Tim Ferriss" },
-        { text: "Hazlo fácil, hazlo sostenible, hazlo tuyo.", author: "James Clear" },
-        { text: "Cada hábito que repites refuerza tu identidad.", author: "James Clear" },
-        { text: "El progreso es mejor que la perfección.", author: "Mark Twain" },
-        { text: "No subestimes el poder de un pequeño paso.", author: "Napoleón Hill" },
-        { text: "Somos lo que hacemos repetidamente. La excelencia, entonces, no es un acto, sino un hábito.", author: "Aristóteles" },
-        { text: "Motivación es lo que te pone en marcha, hábito es lo que hace que sigas.", author: "Jim Ryun" }
-    ];
-    
-    const [ phrases, setPhrases ] = useState( frases[ 0 ] );
+    const { t, i18n  } = useTranslation();
 
-      useEffect( ()=>{
-        
-        const interval = setInterval( ()=>{
-            const randomIndex = Math.floor( Math.random() * frases.length)
-            setPhrases( frases[ randomIndex ] )
+    const [ getPhrase, setGetPhrase ] = useState({ text: "", author: ""} );
 
-        }, 5000)
+    useEffect( ()=>{
 
-        return () => clearInterval( interval );
-      }, [])
+         // obteniedo las claves de mi json de phrases
+        const phrasesKey = Object.keys( t( "phrases", { returnObjects : true } ) );
+        // obteniendo la lista de frases y guardandolas en mi array 
+        const phrases = phrasesKey.map( key => t( `phrases.${ key }`, { returnObjects : true }))
 
-      const { text, author } = phrases;
+        setGetPhrase( phrases[ Math.floor( Math.random( ) * phrases.length  )])
 
+        const interval = setInterval(() => {
+            setGetPhrase( phrases[ Math.floor( Math.random( ) * phrases.length  )])
+        }, 5000);
+
+        return ( ) => clearInterval( interval );
+
+    }, [ i18n.language])
+
+    const { text, author } = getPhrase;
     return (
         <ChangeText key={ text }>
             <p id="frase">{ text } <span id="author">- { author }</span></p>
         </ChangeText>
-        
     )
 }
 

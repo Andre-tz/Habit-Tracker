@@ -60,6 +60,50 @@
 		"null_name": "Falta el nombre del hábito",
 		"null_day": "Selecciona al menos un día",
 		"habit_success": "El hábito ha sido creado"
+	},
+
+	"phrases":{
+		"key_1": {
+			"text": "Los pequeños cambios hacen una gran diferencia.",
+			"author": "James Clear"
+		},
+		"key_2": {
+			"text": "Somos lo que hacemos repetidamente.",
+			"author": "Aristóteles"
+		},
+		"key_3": {
+			"text": "La motivación es lo que te pone en marcha, el hábito es lo que te mantiene en movimiento.",
+			"author": "Jim Ryun"
+		},
+		"key_4": {
+			"text": "No puedes mejorar algo que no mides.",
+			"author": "Peter Drucker"
+		},
+		"key_5": {
+			"text": "La excelencia no es un acto, sino un hábito.",
+			"author": "Will Durant"
+		},
+		"key_6": {
+			"text": "Tu futuro depende de lo que hagas hoy.",
+			"author": "Mahatma Gandhi"
+		},
+		"key_7": {
+			"text": "Cuida tus pensamientos, porque se convertirán en tus palabras. Cuida tus palabras, porque se convertirán en tus acciones. Cuida tus acciones, porque se convertirán en tus hábitos.",
+			"author": "Lao Tzu"
+		},
+		"key_8": {
+			"text": "El éxito es la suma de pequeños esfuerzos repetidos día tras día.",
+			"author": "Robert Collier"
+		},
+		"key_9": {
+			"text": "Primero formamos nuestros hábitos, luego ellos nos forman a nosotros.",
+			"author": "John Dryden"
+		},
+		"key_10": {
+			"text": "El cambio no vendrá si esperamos a otra persona o a otro momento. Nosotros somos los que hemos estado esperando. Somos el cambio que buscamos.",
+			"author": "Barack Obama"
+		}
 	}
+
   }
   
