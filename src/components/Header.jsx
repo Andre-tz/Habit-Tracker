@@ -7,6 +7,7 @@ import { HabitContext } from "../context/HabitContext";
 import ThemePicker from "./ThemePicker";
 import { useTranslation } from "react-i18next";
 
+//este componente me mostrará la cabezera
 const Header = ( ) =>{
 
     //usando useContext para los datos del usuario 

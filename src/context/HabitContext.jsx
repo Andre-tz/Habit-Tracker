@@ -2,14 +2,25 @@ import { createContext, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Toaster } from "sonner";
 import CurrentDay from "./CurrentDay";
+import { useTranslation } from "react-i18next";
 
 const HabitContext = createContext( );
 
 const HabitContextProvider = ( {children } ) => {
 
+    const { t } = useTranslation();
+    //estado que almacena mis habitos
     const [ habits, setHabits ] = useState( [] );
+    //estado que muestra mi pantalla de carga
     const [ loading, setLoading ] = useState ( true )
+    //estado que guarda el dia actual
     const currentDay = CurrentDay();
+    //estado que cuenta todos mis estados
+    const [countStatus, setCountStatus] = useState({
+        [ t("habit.complete") ]: 0,
+        [ t("habit.no_complete") ]: 0,
+        [ t("habit.pendiente") ]: 0,
+      });
 
     //estos datos del usuario tambien se guardaran en el localStorage 
     const [ userData, setUserData ] = useState( 
@@ -69,7 +80,7 @@ const HabitContextProvider = ( {children } ) => {
 
 
     return (
-        <HabitContext.Provider value={ { habits, loading, addHabits, handleDelete, selectedHabit, setSelectedHabit, currentDay, userData, setUserData } }>
+        <HabitContext.Provider value={ { habits, loading, addHabits, handleDelete, selectedHabit, setSelectedHabit, currentDay, userData, setUserData, countStatus, setCountStatus } }>
             <Toaster position="top-right" richColors />
             { children }
         </HabitContext.Provider>

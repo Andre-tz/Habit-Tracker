@@ -7,6 +7,7 @@ import Icons from "./Icons.jsx";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
 
+//este componente me renderiza un formulario para guardar el habito de la persona
 const HabitForms = (  ) => {
 
     const { t } = useTranslation( );
@@ -20,7 +21,6 @@ const HabitForms = (  ) => {
         days: [ ],
         reminder: "08:00",
         note: "",
-        status: "No completado"
     } );
 
     //Funciones para actualizar los valores de mis estados

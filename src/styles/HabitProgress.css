@@ -1,0 +1,22 @@
+#progress-bar{
+    width: 200px;
+    height: 30px;
+    border-radius: 20px;
+    display: flex;
+    overflow: hidden;
+    border: 2px solid #000;
+
+}
+
+
+#complete{
+    background-color: blue;
+}
+
+#no-complete{
+    background-color: red;
+}
+
+#pendiente{
+    background-color: yellow;
+}

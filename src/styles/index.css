@@ -3,7 +3,7 @@
     font-family:  "Inter", Arial, sans-serif;
     margin: 0;
     padding: 0;
-    outline: 1px solid red; /* codigo para ver el tamaño de mis contenedores*/
+    /*outline: .1px solid red; /* codigo para ver el tamaño de mis contenedores*/
 }
 
 :root{

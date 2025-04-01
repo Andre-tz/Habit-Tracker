@@ -9,6 +9,7 @@ import Icons from './Icons.jsx';
 import { useTranslation } from 'react-i18next';
 import dayMapping from '../helper/dayMapping.js';
 
+//este componente me muestra la lista de habitos del usuario
 const HabitList = ( ) => {
     
     const { t } = useTranslation();

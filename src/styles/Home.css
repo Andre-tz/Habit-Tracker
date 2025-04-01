@@ -37,6 +37,9 @@
     color: white;
 }
 
+.top-section{
+    width: 50%;
+}
 .create{
     background-color: var( --button-principal );
     color: white;

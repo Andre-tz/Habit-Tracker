@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Tooltip } from "react-tooltip"
 
+// este componente es de cada uno de los iconos 
 const Icons = ( { id, icon, content, navigateTo, clickAction } )=>{
 
     const backPage = useNavigate( );
