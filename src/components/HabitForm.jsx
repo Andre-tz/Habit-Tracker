@@ -103,9 +103,9 @@ const HabitForms = (  ) => {
                         
                         <div className="button-container">
                             <button type="button" className={ `button-days ${habitData.days.includes( "Lunes" )? "selected" : "" }` } name="Lunes" onClick={ handleDays }>{ t("days.short_name.Mon" ) }</button>
-                            <button type="button" className={ `button-days ${habitData.days.includes( "Martes" )? "selected" : "" }` } name="Martes" onClick={ handleDays }>{ t("days.short_name.Thu" ) }</button>
+                            <button type="button" className={ `button-days ${habitData.days.includes( "Martes" )? "selected" : "" }` } name="Martes" onClick={ handleDays }>{ t("days.short_name.Tue" ) }</button>
                             <button type="button" className={ `button-days ${habitData.days.includes( "Miércoles" )? "selected" : "" }` } name="Miércoles" onClick={ handleDays }>{ t("days.short_name.Wed" ) }</button>
-                            <button type="button" className={ `button-days ${habitData.days.includes( "Jueves" )? "selected" : "" }` } name="Jueves" onClick={ handleDays }>{ t("days.short_name.Tue" ) }</button>
+                            <button type="button" className={ `button-days ${habitData.days.includes( "Jueves" )? "selected" : "" }` } name="Jueves" onClick={ handleDays }>{ t("days.short_name.Thu" ) }</button>
                             <button type="button" className={ `button-days ${habitData.days.includes( "Viernes" )? "selected" : "" }` } name="Viernes" onClick={ handleDays }>{ t("days.short_name.Fri" ) }</button>
                             <button type="button" className={ `button-days ${habitData.days.includes( "Sábado" )? "selected" : "" }` } name="Sábado" onClick={ handleDays }>{ t("days.short_name.Sat" ) }</button>
                             <button type="button" className={ `button-days ${habitData.days.includes( "Domingo" )? "selected" : "" }` } name="Domingo" onClick={ handleDays }>{ t("days.short_name.Sun" ) }</button>

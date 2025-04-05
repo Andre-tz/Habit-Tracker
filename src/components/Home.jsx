@@ -16,20 +16,19 @@ function Home() {
 	//hook para cambiar idioma
 	const { t } = useTranslation();
 	//trayendo estados de mi context
-	const { habits, currentDay, setCountStatus, countStatus } = useContext( HabitContext )
+	const { habits, currentDay, setCountStatus } = useContext( HabitContext )
 
 	//con esta funcion me encargo de actualizar los contadores de estado,  se reduce el la cantidad del estado anterior y se aumenta en una la cantidad del estado actual
     const updateCountStatus = ( prevStatus, newStatus )=>{
-        setCountStatus( prevCount =>( {
-            ...prevCount, 
-            [ prevStatus ] : prevCount[ prevStatus ] - 1,
-            [ newStatus ] : prevCount [ newStatus ] + 1
-        } ) )
-	}
+        setCountStatus( prevCount =>({
+				...prevCount, 
+            	[ prevStatus ] : Math.max( prevCount[ prevStatus ] - 1, 0 ),// Math.max sirve para elegit el mayor valor de 2 numeros, en este caso evitamos que haya negativo
+            	[ newStatus ] : ( prevCount [ newStatus ] || 0 ) + 1
+			})
+		)
+		console.log( `actualizando valores del los contadores ${ prevStatus} - 1 a ${ newStatus  } +1`)
+    }
 
-	useEffect( ()=>{
-		console.log( countStatus )
-	}, [ countStatus ])
 	//Esta funcion se encargar de dividir todos los habitos por dia
 	const splitHabits = ( day, habitsInfo ) =>{
 		return (

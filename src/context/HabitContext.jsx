@@ -9,19 +9,32 @@ const HabitContext = createContext( );
 const HabitContextProvider = ( {children } ) => {
 
     const { t } = useTranslation();
+
+    /*ESTADOS RELACIONADOS A LOS HABITOS*/
     //estado que almacena mis habitos
     const [ habits, setHabits ] = useState( [] );
+
     //estado que muestra mi pantalla de carga
     const [ loading, setLoading ] = useState ( true )
     //estado que guarda el dia actual
     const currentDay = CurrentDay();
-    //estado que cuenta todos mis estados
-    const [countStatus, setCountStatus] = useState({
-        [ t("habit.complete") ]: 0,
-        [ t("habit.no_complete") ]: 0,
-        [ t("habit.pendiente") ]: 0,
-      });
 
+    /*ESTADOS  RELACIONADOS AL CONTADOR DE ESTADOS DE LOS HABITOS  */
+    //estado que cuenta todos mis estados
+    const [countStatus, setCountStatus] = useState( 
+        () =>{
+            const savedStatus = JSON.parse( localStorage.getItem( "contador " ) )
+            return savedStatus || {
+                [ t("habit.complete") ]: 0,
+                [ t("habit.no_complete") ]: 0,
+                [ t("habit.pendiente") ]: 0,
+            }
+        }
+    );
+    //estados de los habitos individuales
+    const [ estado, setEstado ] = useState( );
+
+    /*ESTADOS RELACIONADOS A LAS PREFERENCIAS DEL USUARIO*/
     //estos datos del usuario tambien se guardaran en el localStorage 
     const [ userData, setUserData ] = useState( 
         ()=>{
@@ -79,8 +92,27 @@ const HabitContextProvider = ( {children } ) => {
     }, [ userData.theme ])
 
 
+
+    /* USE EFFECT USADOS PARA EL CONTADOR DE ESTADOS */
+   //guardamos el cambio del contador en el localStorage
+	useEffect( ()=>{
+		localStorage.setItem( "contador", JSON.stringify( countStatus ))
+        console.log( "guardando en el Local", countStatus );
+	}, [ countStatus ])
+
+    //
+    useEffect( ()=>{
+        if( estado ){
+            setCountStatus( prevCount => ( {
+                ...prevCount,
+                [ estado ] : ( prevCount[ estado ] || 0 ) + 1
+            }))
+        } 
+    }, [ estado ])
+
+
     return (
-        <HabitContext.Provider value={ { habits, loading, addHabits, handleDelete, selectedHabit, setSelectedHabit, currentDay, userData, setUserData, countStatus, setCountStatus } }>
+        <HabitContext.Provider value={ { habits, loading, addHabits, handleDelete, selectedHabit, setSelectedHabit, currentDay, userData, setUserData, setCountStatus, setEstado } }>
             <Toaster position="top-right" richColors />
             { children }
         </HabitContext.Provider>

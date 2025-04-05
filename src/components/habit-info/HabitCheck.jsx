@@ -10,7 +10,7 @@ const HabitCheck = ( { name, state, onStatusChange } ) => {
 
     const { t } = useTranslation();
     
-    const { setSelectedHabit, setCountStatus } = useContext( HabitContext)
+    const { setSelectedHabit, setEstado } = useContext( HabitContext)
     //Hook para navegar a otra página
     const navList = useNavigate( );
 
@@ -18,19 +18,21 @@ const HabitCheck = ( { name, state, onStatusChange } ) => {
     
     const [ status, setStatus ] = useState( state )
 
+    //dandole valores de los estados a mi Context
     useEffect( ()=>{
-        if( status ){
-            setCountStatus( prevCount => ( {
-                ...prevCount,
-                [ status ] : prevCount[ status ] + 1
-            } ))
-        }
-        return 
+        console.log( "subiendo estado", status )
+        setEstado( status );
     }, [ status ])
+    
 
     //se ejecuta la funcion para  cambiar los estados del estado
     const toggleStatus = ()=>{
-        const newStatus = status === t( "habit.pendiente" )? t( "habit.complete" ) : t( "habit.no_complete" )
+        let newStatus = ""
+        if( status === t( "habit.pendiente" ) || status === t( "habit.no_complete" ) ) {
+            newStatus= t( "habit.complete" )
+        } else{
+            newStatus = t( "habit.no_complete" )
+        }
         onStatusChange( status, newStatus );
         setStatus( newStatus )
     }
@@ -50,7 +52,7 @@ const HabitCheck = ( { name, state, onStatusChange } ) => {
         <div className="habit-check">
             <input type="checkbox" name="habitCheck" className="habitCheck" checked={ itsChecked } onChange={ handleChange } onClick={ toggleStatus } />
             <h3 className="habit-name" onClick={ handleClick }>{ name }</h3>
-            <p className="habit-estatus">{ itsChecked? t( "habit.complete" ) :  state }</p>
+            <p className="habit-estatus">{ itsChecked? t( "habit.complete" ) :  status }</p>
         </div>
     )
 }
