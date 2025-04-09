@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ChangeText from "./animation/ChangeText";
 import { useTranslation } from "react-i18next";
+import "../styles/HabitPhrases.css"
 
 //este componente me muestra las frases aleatoria que iran en mi habit-tracker
 const HabitPhrases = ( ) =>{

@@ -1,115 +1,129 @@
+/* Estilos para cada tarjeta de hábito */
 .habit-card {
-    min-width: 350px;
-    width: 90%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: #f4f4f5; 
-    border: 1px solid #e2e2e8;
-    border-radius: 12px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    margin: 16px 0;
-    transition: 
-        transform 0.3s ease, box-shadow 0.3s ease,
-        scale .2s;
-}
-
-.habit-card:hover{
-    scale: 1.05;
-}
-
-.habit-card:active{
-    scale: 0.95;
-}
-.habit-title {
-    font-size: 20px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 8px;
-    text-align: center;
-}
-
-.habit-details {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 12px;
-}
-
-.habit-data {
-    font-size: 14px;
-    color: #555;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.text {
-    margin-left: 4px;
-    font-weight: 500;
-    color: #444;
-    display: block;
-}
-
-.habit-note {
-    background-color: #d8f3e3; 
-    border-left: 4px solid var( --button-principal ); 
-    padding: 4px 8px;
-    border-radius: 6px;
-}
-
-.text-note {
-    font-size: 13px;
-    color: #666;
-}
-
-.note {
-    font-weight: 500;
-    color: #555;
-}
-
-.empty{
-    display: flex;
-    justify-content: center;
-    font-style: italic;
-    color: #33333371;
-}
-
-.delente-habit {
-    background-color: var( --button-delete);
-    color: #fff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
+    background-color: var(--card-bg-light);
+    color: var(--text-color-light);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-bottom: 20px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    display: block;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+}
+
+.habit-card:hover {
+    transform: translateY(-5px);
+    background-color: var(--card-bg-hover-light);
+}
+
+.habit-card.nightMode {
+    background-color: var(--card-bg-dark);
+    color: var(--text-color-dark);
+}
+
+.habit-card.nightMode:hover {
+    background-color: var(--card-bg-hover-dark);
+}
+
+/* Titulo del hábito */
+.habit-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-align: center;
+    flex-grow: 0;
+}
+
+/* Detalles del hábito (frecuencia y nota) */
+.habit-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Estilo para la frecuencia */
+.habit-data {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: var(--text-color-light);
+}
+
+.habit-data .text {
+    font-weight: bold;
+}
+
+/* Estilo para las notas */
+.habit-note {
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+    margin: 5px 0;
+}
+
+.habit-note.empty {
+    color: var(--message-color-light);
+}
+
+.habit-note .text-note {
+    font-style: italic;
+}
+
+.habit-note .text-note.empty {
+    color: var(--message-color-light);
+}
+
+/* Botón para eliminar el hábito */
+.delente-habit {
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+    align-self: flex-start;
 }
 
 .delente-habit:hover {
-    background-color: #c0392b;
+    background-color: var(--danger-color-hover);
 }
 
-/*  Estilos para resaltar la card */
-.highlight {
-    animation: highlight 0.5s ease-in-out;
-    background-color: #f0f8ff;
-    border-left: 4px solid var( --button-principal );
+.delente-habit:focus {
+    outline: none;
 }
 
-@keyframes highlight {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+/* Responsive design */
+@media (max-width: 768px) {
+    .habit-card {
+        padding: 15px;
+    }
+
+    .habit-title {
+        font-size: 1.3rem;
+    }
+
+    .habit-data, .habit-note {
+        font-size: 0.9rem;
+    }
 }
 
+@media (max-width: 480px) {
+    .habit-card {
+        padding: 10px;
+    }
 
-@media( min-width: 768px ){
+    .habit-title {
+        font-size: 1.1rem;
+    }
 
-    .habit-data{
-        flex-direction: row ;
+    .habit-data, .habit-note {
+        font-size: 0.8rem;
     }
 }

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Tooltip } from "react-tooltip"
+import "../styles/Icons.css"
 
 // este componente es de cada uno de los iconos 
 const Icons = ( { id, icon, content, navigateTo, clickAction } )=>{

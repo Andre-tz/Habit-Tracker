@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import { HabitContext } from "../context/HabitContext";
 import ThemePicker from "./ThemePicker";
 import { useTranslation } from "react-i18next";
+import "../styles/Header.css"
 
 //este componente me mostrará la cabezera
 const Header = ( ) =>{

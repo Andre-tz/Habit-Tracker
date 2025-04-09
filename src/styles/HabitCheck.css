@@ -1,42 +1,55 @@
+/* Contenedor de HabitCheck */
 .habit-check {
   display: flex;
   align-items: center;
-  background-color: #3a3f58; /* Fondo acorde a los hábitos */
-  padding: 8px;
+  justify-content: space-between;
+  background-color: var(--card-background);
+  padding: 12px 18px;
   border-radius: 8px;
-  margin-bottom: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Interacción con el contenedor al pasar el ratón */
+.habit-check:hover {
+  background-color: var(--hover-background);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo del checkbox */
+.habitCheck {
+  width: 22px;
+  height: 22px;
+  background-color: var(--checkbox-bg);
+  border-radius: 4px;
+  border: 2px solid var(--checkbox-border);
   transition: background-color 0.3s ease;
 }
 
-.habit-check:hover {
-  background-color: #4b5378; /* Un poco más claro al pasar el mouse */
+.habitCheck:checked {
+  background-color: var(--checkbox-checked-bg);
+  border-color: var(--checkbox-checked-border);
 }
 
-.habitCheck {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  accent-color: #3498db; /* Usando el color principal para el check */
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.habitCheck:active {
-  transform: scale(1.1); /* Efecto sutil al clickear */
-}
-
+/* Nombre del hábito */
 .habit-name {
-  flex: 1;  /* Ocupa el espacio disponible */
-  font-size: 18px;
-  color: #edf2f4; /* Texto claro para contraste */
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--theme-text);
+  margin-left: 12px;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
+.habit-name:hover {
+  color: var(--theme-accent);
+}
+
+/* Estado del hábito */
 .habit-estatus {
-  font-size: 14px;
-  color: #8d99ae; /* Color secundario para el estado */
-  margin-left: 10px;
-  text-align: right;
+  font-size: 1rem;
+  color: var(--text-color-light);
+  font-style: italic;
 }
 
-  

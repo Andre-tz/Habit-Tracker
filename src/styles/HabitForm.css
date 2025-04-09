@@ -1,158 +1,139 @@
-#habit-form{
-	min-width: 400px;
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	align-items: center;
+/* Estilo general para el formulario */
+#habit-form {
+    background-color: var(--background-color);
+    color: var(--text-color-light);
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
 }
 
-#habit-form .title{
-	font-size: 1.5rem
+/* Título del formulario */
+#habit-form .title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-form {
-	height: 90%;
-	width: 90%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
-}
-
+/* Estilo para los campos */
 .field {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	height: 150px;
-	width: 100%;
-	max-width: 500px;
- 	margin-bottom: 15px;
-	padding: 20px;
-  	background-color: #fff;
-  	border-radius: .5em;	
-	border: 2px solid var(--color-principal);
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);	
-	transform: translateY(0);
-	transition: 
-		transform .3s ,
-		box-shadow .3s;
+    margin-bottom: 20px;
 }
 
-.field:hover{
-	box-shadow: var( --box-shadow );
+.field label {
+    font-size: 1rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 8px;
 }
 
-.field-title{
-	font-weight: 700;
-	margin-bottom: 10px;
+.field input, .field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: var(--input-background);
+    color: var(--text-color-light);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
 }
 
-label {
-	display: flex;
-	flex-direction: column;
-	font-weight: 700;
-	margin-bottom: 5px;
+.field input:focus, .field textarea:focus {
+    border-color: var(--highlight-color);
+    outline: none;
 }
 
-input[type="text"],
-input[type="time"],
-textarea {
-	border: 2px solid #ddd;
-	border-radius: 8px;
-	padding: 8px;
-	margin-top: 5px;
-	transition: all 0.3s;
-}
-
-textarea{
-	resize: vertical; 
-}
-
-input[type="text"]:focus,
-input[type="time"]:focus,
-textarea:focus {
-	border-color: #4caf50;
-	outline: none;
-}
-
+/* Botones de días */
 .button-container {
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .button-days {
-	width: 45px;
-	font-size: .9rem;
-	display: flex;
-	justify-content: center;
-	padding: 6px 0;
-	border: 2px solid rgba(0, 0, 0, 0.678);
-	border-radius: 8px;
-	background-color: #fff;
-	cursor: pointer;
-	transition: all 0.3s;
+    background-color: var(--button-background);
+    border: 1px solid var(--button-border);
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--button-text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.button-days:hover {
-	border-color: #4caf50;
-}
-
+/* Clase seleccionada */
 .button-days.selected {
-	background-color: #4caf50;
-	color: #fff;
+    background-color: var(--highlight-color);
+    color: var(--text-color-dark);
+    border-color: var(--highlight-color);  /* Puedes también cambiar el borde cuando está seleccionado */
 }
 
+/* Cambio de color al pasar el mouse */
+.button-days:hover {
+    background-color: var(--highlight-color-light);
+    color: var(--text-color-dark);
+}
+
+/* Estilo para el área de notas */
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Botón de submit */
 #submit {
-	max-width: 500px;
-	width: 80%;
-	height: 40px;
-	font-size: 1.2rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: #4caf50;
-  	color: #fff;
-  	border: none;
-  	border-radius: 8px;
-  	padding: 10px;
-  	cursor: pointer;
-  	transition: all 0.3s;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--highlight-color);
+    border: none;
+    border-radius: 8px;
+    color: var(--text-color-dark);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #submit:hover {
-  	background-color: #388e3c;
+    background-color: var(--highlight-color-light);
 }
 
-@media  ( min-width: 1024px ) {
+/* Estilo para las animaciones */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-	form{
-		width: 80%;
-		height: 80%;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-around;
-		gap: 20px
-	}
+#habit-form {
+    animation: fadeIn 0.5s ease-in-out;
+}
 
-	.field{
-		width: 40%;
-		min-width: 450px;
-	}
+/* Responsividad */
+@media (max-width: 768px) {
+    #habit-form {
+        margin: 20px;
+        padding: 15px;
+    }
 
-	.field:hover{
-		transform: translateY(-10px);
-	}
+    .field input, .field textarea {
+        padding: 8px;
+    }
 
-	.button-days {
-		width: 50px;
-		max-width: 60px; 
-	}
+    .button-days {
+        padding: 6px 12px;
+    }
 
-	textarea {
-		width: 100% !important;
-	}
-	
+    #submit {
+        padding: 10px;
+    }
 }

@@ -71,7 +71,6 @@ const HabitForms = (  ) => {
             id: crypto.randomUUID(),
             name: "",
             days: [ ],
-            reminder: "08:00",
             note: "",
             status: "No completado"
         })
@@ -111,13 +110,6 @@ const HabitForms = (  ) => {
                             <button type="button" className={ `button-days ${habitData.days.includes( "Domingo" )? "selected" : "" }` } name="Domingo" onClick={ handleDays }>{ t("days.short_name.Sun" ) }</button>
                         </div>
                         
-                    </div>
-
-                    <div className="field">
-                        <label>
-                            Recordar:
-                            <input onChange={ handleInput } type="time" name="reminder" value={ habitData.reminder} />
-                        </label>
                     </div>
 
                     <div className="field">

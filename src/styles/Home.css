@@ -1,81 +1,95 @@
-
 #main-container {
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
     text-align: center;
-  }
-
-.title{
-    font-size: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: var(--margin) auto;
+    padding: var(--padding);
 }
 
-.menu{
-    width: 80%;
-	max-width: 400px;
-    height: 60%;
+.title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.top-section {
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
 }
 
 .button-main {
-    padding: .5em;
-    font-size: 1.2rem;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: var(--border-radius);
     cursor: pointer;
-    border: 2px solid rgba(0, 0, 0, 0.403);
-    background: transparent;
-    border-radius: .4em;
-    transition: background 0.3s;
-  }
-  
-.view{
-    background: var( --button-secundario );
-    color: white;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
 }
 
-.top-section{
-    width: 50%;
+.create {
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
 }
-.create{
-    background-color: var( --button-principal );
-    color: white;
-}
-.view:hover {
-    background-color: #2980b9;
-  }
 
-.create:hover{
-    background-color: #27ae60;
+.view {
+    background-color: var(--secondary-color);
+    color: var(--button-text-color);
 }
-  
+
+.button-main:hover {
+    background-color: var(--button-hover-bg);
+    transform: scale(1.05);
+}
+
 .daily-habits {
-	min-width: 400px;
-    width: 100vw;
-    padding: 20px;
-    margin-top: 20px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-  }
-
-.message{
-	color: rgba(0, 0, 0, 0.337);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    padding: var(--padding);
+    transition: background-color var(--transition-speed);
 }
-  
-@media (min-width: 768px){
-	
-	.menu{
-		flex-direction: row;
-	}
 
-	.daily-habits{
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
+/* Estilos para los días de hábitos */
+.message {
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--text-color-dark);
+    margin-top: 30px;
+}
 
+/* Responsive design (Adaptación en dispositivos pequeños) */
+@media (max-width: 768px) {
+    .top-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button-main {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .daily-habits {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .message {
+        font-size: 1rem;
+    }
 }
