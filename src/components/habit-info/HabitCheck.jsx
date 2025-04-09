@@ -6,11 +6,11 @@ import { useTranslation } from "react-i18next";
 
 //Este componente me mostrara la infomacion resumida del habito
 
-const HabitCheck = ( { name, state, onStatusChange } ) => {
+const HabitCheck = ( { name, state } ) => {
 
     const { t } = useTranslation();
     
-    const { setSelectedHabit, setEstado } = useContext( HabitContext)
+    const { setSelectedHabit } = useContext( HabitContext)
     //Hook para navegar a otra página
     const navList = useNavigate( );
 
@@ -18,28 +18,10 @@ const HabitCheck = ( { name, state, onStatusChange } ) => {
     
     const [ status, setStatus ] = useState( state )
 
-    //dandole valores de los estados a mi Context
-    useEffect( ()=>{
-        console.log( "subiendo estado", status )
-        setEstado( status );
-    }, [ status ])
-    
-
-    //se ejecuta la funcion para  cambiar los estados del estado
-    const toggleStatus = ()=>{
-        let newStatus = ""
-        if( status === t( "habit.pendiente" ) || status === t( "habit.no_complete" ) ) {
-            newStatus= t( "habit.complete" )
-        } else{
-            newStatus = t( "habit.no_complete" )
-        }
-        onStatusChange( status, newStatus );
-        setStatus( newStatus )
-    }
-
     //manejador de stado del check
     const handleChange = ( ) =>{ 
-        setItsChecked( !itsChecked ) 
+        setItsChecked( !itsChecked );
+        //toggleStatus( );
     }
 
     //manejador del evento click
@@ -50,7 +32,7 @@ const HabitCheck = ( { name, state, onStatusChange } ) => {
 
     return (
         <div className="habit-check">
-            <input type="checkbox" name="habitCheck" className="habitCheck" checked={ itsChecked } onChange={ handleChange } onClick={ toggleStatus } />
+            <input type="checkbox" name="habitCheck" className="habitCheck" checked={ itsChecked } onChange={ handleChange } />
             <h3 className="habit-name" onClick={ handleClick }>{ name }</h3>
             <p className="habit-estatus">{ itsChecked? t( "habit.complete" ) :  status }</p>
         </div>
