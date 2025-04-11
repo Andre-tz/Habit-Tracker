@@ -5,19 +5,14 @@
     align-items: center;
     width: 100%;
     padding: 20px;
-    background-color: var(--background-color-light);
-    color: var(--text-color-light);
     border-bottom: 1px solid var(--primary-color);
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-#header.nightMode {
-    background-color: var(--background-color-dark);
-    color: var(--text-color-dark);
-}
-
 #name-app {
-    font-size: 2rem;
+    text-align: center;
+    width: clamp( 100px, 60%, 300px);
+    font-size: 1rem;
     font-weight: 600;
     color: var(--primary-color);
     margin: 0;
@@ -71,34 +66,7 @@
 }
 
 /* Responsive design para el header */
-@media (max-width: 768px) {
-    #header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    #name-app {
-        font-size: 1.8rem;
-    }
-
-    #user-options {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    #user-options .icon-container {
-        display: inline-block;
-    }
+@media (min-width: 768px) {
+    
 }
 
-@media (max-width: 480px) {
-    #name-app {
-        font-size: 1.5rem;
-    }
-
-    #user-options .icon-container img {
-        width: 25px;
-        height: 25px;
-    }
-}

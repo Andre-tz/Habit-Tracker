@@ -1,20 +1,12 @@
 :root {
-  --theme-color-light: #fff;
-  --theme-color-dark: #333;
-  --background-color-light: #f4f4f4;
-  --background-color-dark: #2c3e50; 
-  --primary-color: #3498db; 
-  --secondary-color: #2ecc71; 
-  --accent-color: #f39c12;
-  --text-color-light: #333; 
-  --text-color-dark: #fff; 
-  --button-bg: #3498db;
-  --button-hover-bg: #2980b9;
-  --button-text-color: white;
-  --border-radius: 8px;
+  --primary-color: #000; /*color que elegira el usuario*/
+  --text-color-light: #0F172A;  /*color principal light*/
+  --text-color-dark: 	#A1A1AA; /*color en modo oscuro*/
+  --background-color-light: #FFFFFF;
+  --background-color-dark: #0F172A; 
+  --icon-color-light: #555;
+  --icon-color-dark: #ccc;
   --transition-speed: 0.3s;
-  --padding: 20px;
-  --margin: 15px;
   --font-family: "Inter", Arial, sans-serif;
 }
 

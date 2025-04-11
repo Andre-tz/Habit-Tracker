@@ -71,7 +71,7 @@ const HabitContextProvider = ( {children } ) => {
     //useEffect que se encargara de cargar los datos del usuarios guardado en el localStorage
     useEffect( ()=>{
         //con esto cambio la propiedad en mis estilos que coincida con el nombre dado con el valor dado
-        document.documentElement.style.setProperty( "--theme-color", userData.theme )
+        document.documentElement.style.setProperty( "--primary-color", userData.theme )
 
         //esta dependencia es solo por ahora, ya que le agregaré mas cosas 
     }, [ userData.theme ])

@@ -78,7 +78,8 @@ const Header = ( ) =>{
     ]
     return (
         <header id="header">
-            <h1 id="name-app"> Habit Tracker</h1>
+            <h1 id="name-app">{ "</ itsAndreDev >" }</h1>
+
 
             <ul id="user-options">
             

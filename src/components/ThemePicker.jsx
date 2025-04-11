@@ -24,7 +24,18 @@ const ThemePicker = ( { onChange, onClose } ) =>{
         <div ref={ modalRef} className="theme-picker-container">
             <TwitterPicker
                 triangle="hide" 
-                colors={["#FF6B6B", "#6BFFB3", "#6B9EFF",  "#FFD86B", "#C084FC", "#FF9E6B", "#6BCBFF", "#A0E860", "#FF6BE0", "#6BFFC7"]} 
+                colors={[
+                    "#3B82F6",
+                    "#FFFFFF",
+                    "#8B5CF6", 
+                    "#22C55E", 
+                    "#F97316", 
+                    "#06B6D4",
+                    "#EF4444", 
+                    "#FACC15",
+                    "#EC4899",
+                    "#5EEAD4"
+                  ]} 
                 onChangeComplete={(color) => onChange(color.hex)} />
         </div>
     )
