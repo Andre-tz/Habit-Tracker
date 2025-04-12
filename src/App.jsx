@@ -4,6 +4,7 @@ import PageAnimation from "./components/animation/PageAnimation";
 import OptionTransition from "./components/animation/OptionTransition";
 import { useContext } from "react";
 import { HabitContext } from "./context/HabitContext";
+import Footer from "./components/Footer"
 
 const App = ( ) =>{
 
@@ -17,6 +18,7 @@ const App = ( ) =>{
                     <Outlet />
                 </PageAnimation>
 
+                <Footer />
             </OptionTransition>
         </>
         

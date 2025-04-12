@@ -44,3 +44,8 @@
     color: var(--icon-color-hover-dark);
 }
 
+@media ( min-width: 768px ){
+    .icon{
+        font-size: 1.6rem;
+    }
+}

@@ -76,7 +76,7 @@ const HabitList = ( ) => {
                                 }
                                 index={ index } />
                     )))
-                    : <p className='message'> No hay hábitos para cargar </p>
+                    : <p className='message'>{ t("emptyState.noHabitsToLoad" ) }</p>
                     } 
                     </div>
                 </section>

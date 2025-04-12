@@ -63,7 +63,7 @@ function Home() {
 
 			{ habits.length == 0? 
 
-				<h3 className="message"> No hay hábitos para mostrar</h3> :
+				<h3 className="message">{ t("emptyState.noHabitsToShow" ) }</h3> :
 
 				daysWeek
 					.filter(dia => splitHabits(dia, habits).length > 0)

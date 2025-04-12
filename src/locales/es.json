@@ -103,7 +103,17 @@
 			"text": "El cambio no vendrá si esperamos a otra persona o a otro momento. Nosotros somos los que hemos estado esperando. Somos el cambio que buscamos.",
 			"author": "Barack Obama"
 		}
+	},
+
+	"footer": {
+    	"question": "¿Hoy marcaste tus hábitos o solo viniste a mirar? 👀",
+    	"madeBy": "Hecho con cafeína y malas decisiones por Andre © 2025"
+  	},
+
+	"emptyState": {
+    	"noHabitsToShow": "Ups... no hay hábitos por aquí.",
+    	"noHabitsToLoad": "Parece que no hay hábitos para cargar."
 	}
 
-  }
+}
   

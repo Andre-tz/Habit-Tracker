@@ -104,6 +104,16 @@
             "text": "Change will not come if we wait for some other person or some other time. We are the ones we've been waiting for. We are the change that we seek.",
             "author": "Barack Obama"
         }
+    },
+
+    "footer": {
+        "question": "Did you track your habits today or just came to stare? 👀",
+        "madeBy": "Made with caffeine & bad decisions by Andre © 2025"
+    },
+
+    "emptyState": {
+    	"noHabitsToShow": "Oops... no habits around here.",
+    	"noHabitsToLoad": "Looks like there are no habits to load."
     }
       
 }

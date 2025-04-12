@@ -10,7 +10,6 @@
 }
 
 #name-app {
-    text-align: center;
     width: clamp( 100px, 60%, 300px);
     font-size: 1rem;
     font-weight: 600;
@@ -67,6 +66,8 @@
 
 /* Responsive design para el header */
 @media (min-width: 768px) {
-    
+    #name-app{
+        font-size: 1.6rem;
+    }
 }
 
