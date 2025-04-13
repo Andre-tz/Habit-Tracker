@@ -1,13 +1,13 @@
 #main-container {
     text-align: center;
     width: 100%;
-    max-width: 1200px;
-    margin: var(--margin) auto;
-    padding: var(--padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--primary-color);
     margin-bottom: 20px;
 }
@@ -27,28 +27,35 @@
 }
 
 .button-main {
-    padding: 12px 24px;
-    font-size: 16px;
-    border: none;
-    border-radius: var(--border-radius);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.6rem;
+    font-size: .8rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
-}
-
-.create {
-    background-color: var(--primary-color);
-    color: var(--button-text-color);
-}
-
-.view {
-    background-color: var(--secondary-color);
-    color: var(--button-text-color);
-}
-
-.button-main:hover {
-    background-color: var(--button-hover-bg);
-    transform: scale(1.05);
-}
+    background: transparent;
+    border: 2px solid var( --primary-color );
+    color: var( --primary-color );
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 4px 12px var(--primary-color);
+  }
+  
+  /* BOTÓN VER (principal) */
+  .view {
+    background-color: var(--primary-color );
+    color: white;
+  }
+  
+  .view:hover {
+    background-color: white;
+    color: var(--primary-color);
+    box-shadow: 0 0 0 4px var( --primary-color );
+  }
+  
+  .create:hover {
+    background-color: var( --primary-color );
+    color: white;
+    box-shadow: 0 0 0 4px var( --primary-color );
+  }
 
 .daily-habits {
     display: grid;
@@ -68,28 +75,8 @@
 }
 
 /* Responsive design (Adaptación en dispositivos pequeños) */
-@media (max-width: 768px) {
-    .top-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .button-main {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .daily-habits {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    .title {
-        font-size: 2rem;
-    }
-
-    .message {
-        font-size: 1rem;
+@media (min-width: 768px) {
+    .title{
+        font-size: 2.5rem;
     }
 }

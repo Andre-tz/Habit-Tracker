@@ -50,8 +50,8 @@ function Home() {
 			
 			<div className="top-section">
 				<ul className="menu">
-					<NavLink to= "/habit-list"><button className="button-main create">{ t( "view_habits" ) }</button></NavLink>
-					<NavLink to = "/habit-form"><button className="button-main view">{ t( "create_habits" ) }</button></NavLink>
+					<NavLink to= "/habit-list"><button className="button-main view">{ t( "view_habits" ) }</button></NavLink>
+					<NavLink to = "/habit-form"><button className="button-main create">{ t( "create_habits" ) }</button></NavLink>
 				</ul>
 
 				{/* <HabitProgress />	 */}

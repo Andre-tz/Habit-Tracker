@@ -11,7 +11,7 @@ const App = ( ) =>{
     const { userData } = useContext( HabitContext )
     return (
         <>
-            <OptionTransition key={ userData }>
+            <OptionTransition key={ userData } >
                 <Header />
 
                 <PageAnimation>

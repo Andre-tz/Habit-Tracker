@@ -12,7 +12,7 @@ const ChangeText = ( { children, frase  } ) =>{
 
 
     return (
-        <motion.div key={ frase } { ...fadeAnimation }>
+        <motion.div key={ frase } { ...fadeAnimation } id="phrase-container">
             { children }
         </motion.div>
     )

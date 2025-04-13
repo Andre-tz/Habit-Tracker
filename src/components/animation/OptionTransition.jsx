@@ -13,7 +13,7 @@ const OptionTransition = ( { children } )=>{
 
     const { userData } = useContext( HabitContext );
     return (
-        <motion.div key={ JSON.stringify( userData ) }  { ...fadeBlinkAnimation }>
+        <motion.div key={ JSON.stringify( userData ) }  { ...fadeBlinkAnimation } id="app-container">
             { children }
         </motion.div>
     )

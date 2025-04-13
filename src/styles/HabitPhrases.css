@@ -1,75 +1,39 @@
-/* Estilo para la frase sin fondo cuadrado */
-#frase {
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: var(--text-color-light);
-    text-align: center;
-    padding: 10px 20px; /* Menos padding */
-    margin: 20px 0;
-    max-width: 80%;
-    line-height: 1.6;
-    border-radius: 10px; /* Bordes suaves */
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    background-color: transparent; /* Fondo transparente */
-}
-
-/* Cambio en el modo noche para mantener la coherencia */
-#frase.nightMode {
-    color: var(--text-color-dark);
-}
-
-/* Efecto hover para agregar interacción */
-#frase:hover {
-    transform: scale(1.05);
-}
-
-/* Animación para las frases (aparece con fade in) */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+#phrase-container{
+    width: 100%;
+    max-width: 500px;
 }
 
 #frase {
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-/* Estilo para el autor sin distinción fuerte */
-#author {
+    font-family: 'Georgia', serif;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    background: #fdfdfd;
+    border-left: 4px solid var( --primary-color );
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    width: 100%;
+  }
+  
+  #author {
     display: block;
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--text-color-muted);
-    margin-top: 10px;
+    margin-top: 0.7rem;
+    font-size: .9rem;
+    color: #636e72;
+    font-style: italic;
     text-align: right;
-}
+  }
+  
 
-/* Responsive design */
-@media (max-width: 768px) {
-    #frase {
+@media (min-width: 768px) {
+    #frase{
         font-size: 1.2rem;
-        padding: 10px;
-        margin: 15px 0;
     }
 
-    #author {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    #frase {
+    #author{
         font-size: 1rem;
-        padding: 10px;
-        margin: 10px 0;
-    }
-
-    #author {
-        font-size: 0.8rem;
     }
 }

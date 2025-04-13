@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-
+import "../styles/Footer.css"
 //este componente mostrara el footer
 const Footer = ( ) =>{
     const { t } = useTranslation();
