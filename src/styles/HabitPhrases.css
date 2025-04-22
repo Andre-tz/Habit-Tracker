@@ -6,13 +6,11 @@
 #frase {
     font-family: 'Georgia', serif;
     font-size: 0.9rem;
-    color: #2c3e50;
-    background: #fdfdfd;
     border-left: 4px solid var( --primary-color );
     padding: 1rem 1.5rem;
     margin: 1rem 0;
     border-radius: 0.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: var( --box-shadow-light );
     transition: all 0.3s ease-in-out;
     position: relative;
     width: 100%;

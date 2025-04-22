@@ -1,12 +1,11 @@
 import "../styles/HabitDay.css"
-import PageAnimation from "./animation/PageAnimation";
 
 //Este componente obtendra los habitos que correspondan a su dia correspondiente
 
 const HabitDay = ( { day, habits = [] } ) => {
 
     return (
-        <PageAnimation>
+        <>
             <div className="day-container">
                 <h1 className="title">{ day }</h1>
 
@@ -17,7 +16,7 @@ const HabitDay = ( { day, habits = [] } ) => {
                 </div>
                 
             </div>
-        </PageAnimation>
+        </>
     )
 }
 

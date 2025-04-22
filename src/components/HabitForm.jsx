@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { HabitContext } from "../context/HabitContext.jsx"
 import "../styles/HabitForm.css"
 import { toast } from "sonner";
-import PageAnimation from "./animation/PageAnimation.jsx";
 import Icons from "./Icons.jsx";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { useTranslation } from "react-i18next";
@@ -77,7 +76,7 @@ const HabitForms = (  ) => {
     }
 
     return (
-        <PageAnimation>
+        <>
             <Icons 
                 id= "back"
                 icon={ <IoArrowBackOutline /> }
@@ -124,7 +123,7 @@ const HabitForms = (  ) => {
                 </form>
 
             </section>
-        </ PageAnimation>
+        </>
         
     )
 }

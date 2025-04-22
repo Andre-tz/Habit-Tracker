@@ -3,7 +3,7 @@ import { Tooltip } from "react-tooltip"
 import "../styles/Icons.css"
 
 // este componente es de cada uno de los iconos 
-const Icons = ( { id, icon, content, navigateTo, clickAction } )=>{
+const Icons = ( { id, icon, content, navigateTo, clickAction, tagId } )=>{
 
     const backPage = useNavigate( );
 
@@ -17,7 +17,7 @@ const Icons = ( { id, icon, content, navigateTo, clickAction } )=>{
     }
     return (
         <>
-            <span data-tooltip-id={ `tooltip-${ id }` } className="icon" onClick={ handleClick }>{ icon }</span>
+            <span id={ tagId } data-tooltip-id={ `tooltip-${ id }` } className="icon" onClick={ handleClick }>{ icon }</span>
             <Tooltip id={ `tooltip-${ id }` } place="bottom" content={ content } />
         </>
     )

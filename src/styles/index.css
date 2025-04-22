@@ -1,9 +1,11 @@
 :root {
   --primary-color: #000; /*color que elegira el usuario*/
   --text-color-light: #0F172A;  /*color principal light*/
-  --text-color-dark: 	#A1A1AA; /*color en modo oscuro*/
+  --text-color-dark: 	#F8FAFC; /*color en modo oscuro*/
   --background-color-light: #FFFFFF;
   --background-color-dark: #0F172A; 
+  --box-shadow-light: 0 2px 8px rgba(0,0,0,0.1);
+  --box-shadow-dark: 0 2px 8px rgba( 255, 255, 255, 0.9);
   --icon-color-light: #555;
   --icon-color-dark: #ccc;
   --transition-speed: 0.3s;
@@ -34,14 +36,18 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 0 30px;
   width: 100vw;
   max-width: 1024px;
   min-width: 400px;
 }
 
 body.nightMode {
-  background-color: var(--background-color-dark);
-  color: var(--text-color-dark);
+  --background-color-light: var(--background-color-dark);
+  --text-color-light: var(--text-color-dark);
+  --box-shadow-light: var(--box-shadow-dark);
+}
+
+#root{
+  width: 100%;
 }

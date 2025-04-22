@@ -3,7 +3,6 @@ import { HabitContext } from '../context/HabitContext.jsx';
 import HabitItem from "./habit-info/HabitItem.jsx"
 import "../styles/HabitList.css"
 import upperCase from '../helper/upperCase.js';
-import PageAnimation from './animation/PageAnimation.jsx';
 import { IoArrowBackOutline } from "react-icons/io5";
 import Icons from './Icons.jsx';
 import { useTranslation } from 'react-i18next';
@@ -15,11 +14,14 @@ const HabitList = ( ) => {
     const { t } = useTranslation();
     const { habits, loading, selectedHabit, setSelectedHabit } = useContext( HabitContext )
 
-    //Con este useEffect busco en el localStorage  el habito que muest
+    //Con este useEffect me desplazo automaticamente hasta el habito seleccionado por su id y luego lo deselecciono
     useEffect ( ( ) =>{
         if( selectedHabit){
+            // busco el elemento del habito por su ID
             const habitElement = document.getElementById( selectedHabit );
+
             if( habitElement ){
+                //si existe hago scroll suave hasta el
                 habitElement.scrollIntoView ( {
                     behavior : "smooth",
                     block: "center"
@@ -38,8 +40,9 @@ const HabitList = ( ) => {
     if( loading ) return <span>Cargando habitos....</span>
 
     return (
-        <PageAnimation>
+        <>
             <Icons
+                tagId={ "back" }
                 id= "back"
                 icon={ <IoArrowBackOutline /> }
                 content={ t("icons.go_back")}
@@ -55,7 +58,7 @@ const HabitList = ( ) => {
                         
                         habits.length > 0 ? ( 
 
-                        habits.map( ({ id, name, days, status, note } , index ) =>(
+                        habits.map( ({ id, name, days, note } , index ) =>(
                             <HabitItem
                                 key={ id }
                                 id= { id }
@@ -81,7 +84,7 @@ const HabitList = ( ) => {
                     </div>
                 </section>
             
-        </PageAnimation>
+        </>
         
     )
 }
