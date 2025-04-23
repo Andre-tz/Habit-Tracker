@@ -1,0 +1,11 @@
+.theme-picker-container{
+    position: absolute;
+    top: 80px;
+    right: 5%;
+}
+
+@media  ( min-width: 768px ) {
+    .theme-picker-container{
+        right: 10%;
+    }
+}

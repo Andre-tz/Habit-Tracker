@@ -18,7 +18,6 @@ const HabitForms = (  ) => {
         id: crypto.randomUUID(),
         name: "",
         days: [ ],
-        reminder: "08:00",
         note: "",
     } );
 
@@ -79,6 +78,7 @@ const HabitForms = (  ) => {
         <>
             <Icons 
                 id= "back"
+                tagId= "back"
                 icon={ <IoArrowBackOutline /> }
                 content={ t("icons.go_back")}
                 navigateTo="/"

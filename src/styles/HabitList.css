@@ -12,7 +12,7 @@
 
 /* Titulo de la lista de hábitos */
 #habit-list .title {
-    font-size: 1.7rem;
+    font-size: var( --title-size );
     font-weight: 600;
     color: var(--primary-color);
     margin-bottom: 20px;

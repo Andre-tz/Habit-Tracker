@@ -1,6 +1,7 @@
 //Componente que se usará para que el usuario escoja el color de Habit Tracker
 import { useEffect, useRef } from "react";
 import { TwitterPicker } from "react-color";
+import "../styles/ThemePicker.css"
 
 const ThemePicker = ( { onChange, onClose } ) =>{
 

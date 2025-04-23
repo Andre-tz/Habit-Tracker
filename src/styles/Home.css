@@ -50,7 +50,7 @@
   }
   
   .view:hover {
-    background-color: white;
+    background-color: transparent;
     color: var(--primary-color);
     box-shadow: 0 0 0 4px var( --primary-color );
   }
