@@ -1,63 +1,38 @@
-/* Contenedor principal de HabitDay */
+/* Estilos para HabitDay */
 .day-container {
-  background-color: var(--theme-background);
+  padding: 16px;
+  margin-bottom: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  margin: 20px auto;
+  box-shadow: var(--box-shadow-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 90%;
-  max-width: 600px;
-  transition: all 0.3s ease;
+  min-width: 350px;
+  max-width: 400px;
 }
 
-.title {
-  font-size: 2.4rem;
+.day-container:hover {
+  transform: translateY(-2px);
+}
+
+.title-day {
+  font-size: 1.2rem;
   font-weight: bold;
-  color: var(--theme-text);
-  text-align: center;
-  margin-bottom: 20px;
-  letter-spacing: 0.5px;
-  transition: color 0.3s ease;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+  text-align: left;
 }
 
 .day-info {
-  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .habit-list {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
   margin: 0;
-}
-
-.habit-item {
-  background-color: var(--card-background);
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  font-size: 1.1rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.3s ease;
+  flex-direction: column;
+  gap: 12px;
 }
-
-.habit-item:hover {
-  background-color: var(--hover-background);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.habit-name {
-  font-weight: 500;
-  color: var(--theme-text-light);
-  font-size: 1.1rem;
-}
-
-.no-habits-message {
-  font-size: 1.1rem;
-  color: var(--text-color-light);
-  text-align: center;
-  font-style: italic;
-}
-

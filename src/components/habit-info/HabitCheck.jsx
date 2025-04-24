@@ -34,7 +34,7 @@ const HabitCheck = ( { name, state } ) => {
         <div className="habit-check">
             <input type="checkbox" name="habitCheck" className="habitCheck" checked={ itsChecked } onChange={ handleChange } />
             <h3 className="habit-name" onClick={ handleClick }>{ name }</h3>
-            <p className="habit-estatus">{ itsChecked? t( "habit.complete" ) :  status }</p>
+            <p className={`habit-estatus ${ itsChecked? "complete" : "" }`}>{ itsChecked? t( "habit.complete" ) :  status }</p>
         </div>
     )
 }

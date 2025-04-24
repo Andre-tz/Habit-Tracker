@@ -62,8 +62,11 @@
   }
 
 .daily-habits {
-   width: inherit;
-   
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+    justify-content: center;
 }
 
 .message {
@@ -84,4 +87,14 @@
     .message{
         font-size: 1.2rem
     }
+
+    .daily-habits {
+        grid-template-columns: repeat(2, auto);
+      }
 }
+
+@media (min-width: 1024px) {
+    .daily-habits {
+      grid-template-columns: repeat(3, auto);
+    }
+  }

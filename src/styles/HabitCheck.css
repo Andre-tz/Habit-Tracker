@@ -1,55 +1,73 @@
-/* Contenedor de HabitCheck */
+/* Contenedor del habit-check */
 .habit-check {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: var(--card-background);
-  padding: 12px 18px;
+  justify-content: flex-start;
+  margin: 10px 0;
+  padding: 10px;
   border-radius: 8px;
-  margin-bottom: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  box-shadow: var( --box-shadow-light );
+  transform: scale( 1 );
+  transition: 
+    background-color 0.3s ease,
+    transform 0.3s ease;
+  cursor: pointer;
 }
 
-/* Interacción con el contenedor al pasar el ratón */
 .habit-check:hover {
-  background-color: var(--hover-background);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
 }
 
-/* Estilo del checkbox */
 .habitCheck {
+  appearance: none; 
   width: 22px;
   height: 22px;
-  background-color: var(--checkbox-bg);
-  border-radius: 4px;
-  border: 2px solid var(--checkbox-border);
-  transition: background-color 0.3s ease;
+  border-radius: 5px;
+  border: 2px solid var( --primary-color );
+  margin-right: 10px;
+  position: relative;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
 }
 
 .habitCheck:checked {
-  background-color: var(--checkbox-checked-bg);
-  border-color: var(--checkbox-checked-border);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px var( --primary-color); 
 }
 
-/* Nombre del hábito */
+.habitCheck:checked::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
 .habit-name {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--theme-text);
-  margin-left: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-right: 10px;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .habit-name:hover {
-  color: var(--theme-accent);
+  color: var( --primary-color );
 }
 
-/* Estado del hábito */
 .habit-estatus {
-  font-size: 1rem;
-  color: var(--text-color-light);
-  font-style: italic;
+  font-size: 0.8rem;
+  font-weight: 200;
+  margin-left: auto;
+  transition: color 0.3s ease;
 }
 
+.habit-estatus.complete {
+  text-decoration: line-through;
+  font-weight: bold;
+}
