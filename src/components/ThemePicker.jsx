@@ -27,7 +27,7 @@ const ThemePicker = ( { onChange, onClose } ) =>{
                 triangle="hide" 
                 colors={[
                     "#3B82F6",
-                    "#FFFFFF",
+                    "#000",
                     "#8B5CF6", 
                     "#22C55E", 
                     "#F97316", 

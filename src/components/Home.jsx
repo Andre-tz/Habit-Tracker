@@ -8,7 +8,6 @@ import upperCase from "../helper/upperCase";
 import { useTranslation } from "react-i18next";
 import dayMapping from "../helper/dayMapping"
 import HabitPhrases from "./HabitPhrases";
-import HabitProgress from "./HabitProgress";
 
 
 function Home() {

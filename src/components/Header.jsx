@@ -32,8 +32,27 @@ const Header = ( ) =>{
 
     //useEffect para cambiar obtener guardar en el local el modo usado e implementarlo
     useEffect( ( ) =>{
+
         saveData( "nightMode", activeNightMode )
-        activeNightMode === true? document.body.classList.add( "nightMode" ) : document.body.classList.remove( "nightMode" )
+
+        const primaryColor = getComputedStyle( document.documentElement )
+            .getPropertyValue( "--primary-color" )
+            .trim( )
+            .toLowerCase( );
+
+        if( activeNightMode === true ){
+
+            document.body.classList.add( "nightMode" )
+            
+            if( primaryColor === "#000" || primaryColor ==="#000000" ){
+                document.documentElement.style.setProperty( "--primary-color", "#ffffff" )
+            }
+
+        }else{
+            if( primaryColor === "#ffffff" || primaryColor === "#fff"){ document.documentElement.style.setProperty( "--primary-color", "#000000" ) }
+            document.body.classList.remove( "nightMode" );
+        }
+        
     }, [ activeNightMode ])
 
     //esta funcion se encargara  de actualizar los datos del usuario y llevarlos  al localStorage
