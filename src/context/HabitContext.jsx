@@ -36,6 +36,12 @@ const HabitContextProvider = ( {children } ) => {
     // usare este estado para guardar cualquier habito y usarlo mas adelante
     const [ selectedHabit, setSelectedHabit ] = useState( "" );
 
+    //este estado se encargara de guardar los datos de cada HabitCheck, primero busca en el local y si no hay lo inicia vacio
+    const [ habitStatusList, setHabitStatusList ] = useState( ()=>{
+        const itsLocal = localStorage.getItem( "estadosCheck")
+        return itsLocal? JSON.parse( itsLocal ) : []
+    } )
+
     //este useEffect se encarga de traer todos los datos el localStorage a mi aplicacion
     useEffect( () =>{
             try {
@@ -94,10 +100,12 @@ const HabitContextProvider = ( {children } ) => {
 
 
     /* USE EFFECT USADOS PARA EL CONTADOR DE ESTADOS */
-
+    useEffect( ()=>{
+        localStorage.setItem( "estadosCheck", JSON.stringify( habitStatusList ) )
+    }, [ habitStatusList ])
 
     return (
-        <HabitContext.Provider value={ { habits, loading, addHabits, handleDelete, selectedHabit, setSelectedHabit, currentDay, userData, setUserData } }>
+        <HabitContext.Provider value={ { habits, loading, addHabits, handleDelete, selectedHabit, setSelectedHabit, currentDay, userData, setUserData, setHabitStatusList, habitStatusList } }>
             <Toaster position="top-right" richColors />
             { children }
         </HabitContext.Provider>

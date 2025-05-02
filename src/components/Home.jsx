@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext, useState } from "react"
 import { NavLink } from "react-router-dom"
 import { HabitContext } from "../context/HabitContext";
 import HabitDay from "./HabitDay";
@@ -8,12 +8,14 @@ import upperCase from "../helper/upperCase";
 import { useTranslation } from "react-i18next";
 import dayMapping from "../helper/dayMapping"
 import HabitPhrases from "./HabitPhrases";
+//import HabitProgress from "../components/HabitProgress"
 
 
 function Home() {
 
 	//hook para cambiar idioma
 	const { t } = useTranslation();
+
 	//trayendo estados de mi context
 	const { habits, currentDay } = useContext( HabitContext )
 
@@ -27,6 +29,7 @@ function Home() {
 				//con map creo los componentes que muestran la informacion de esos habitos separados
 				.map( habito =>(
 						<HabitCheck
+						day= { day }
 						key={ habito.id } 
 						name={ upperCase( habito.name ) }
 						state = { day == currentDay? t( "habit.pendiente" ) : t( "habit.no_complete") }
@@ -53,7 +56,7 @@ function Home() {
 					<NavLink to = "/habit-form"><button className="button-main create">{ t( "create_habits" ) }</button></NavLink>
 				</ul>
 
-				{/* <HabitProgress />	 */}
+				{ /*/<HabitProgress /> */}	 
 			</div>
 
 		</div>
