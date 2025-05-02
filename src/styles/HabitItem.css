@@ -61,7 +61,7 @@
     width: 100%;
     background-color: var(--primary-color);
     border: none;
-    color: white;
+    color: var( --button-color-night );
     padding: 0.75rem 1rem;
     font-size: 1rem;
     font-weight: 600;

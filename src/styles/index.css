@@ -4,6 +4,7 @@
   --text-color-dark: 	#F8FAFC; /*color en modo oscuro*/
   --background-color-light: #FFFFFF;
   --background-color-dark: #0F172A; 
+  --button-color-night: #ffffff;
   --title-size: 1.7rem;
   --box-shadow-light: 0 2px 8px rgba(0,0,0,0.1);
   --box-shadow-dark: 0 2px 8px rgba( 255, 255, 255, 0.9);

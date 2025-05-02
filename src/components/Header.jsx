@@ -7,6 +7,7 @@ import { HabitContext } from "../context/HabitContext";
 import ThemePicker from "./ThemePicker";
 import { useTranslation } from "react-i18next";
 import "../styles/Header.css"
+import setThemeColor from "../helper/setThemeColor";
 
 //este componente me mostrará la cabezera
 const Header = ( ) =>{
@@ -15,12 +16,13 @@ const Header = ( ) =>{
     const { userData, setUserData } = useContext( HabitContext );
     //estado para mostrar el modal de colores
     const [ showThemePicker, setShowThemePicker ]= useState( false );
-
+    // estado para el modo noche
     const[ activeNightMode, setActiveNightMode ] = useState( 
         ( ) =>{
             return JSON.parse( localStorage.getItem( "userData" ) )?.nightMode || false;
         }
     );
+
 
     //nuevo Hook para las traducciones
     const { t, i18n } = useTranslation();
@@ -30,28 +32,13 @@ const Header = ( ) =>{
         i18n.changeLanguage( userData.language )
     },[userData])
 
-    //useEffect para cambiar obtener guardar en el local el modo usado e implementarlo
+    //este useEffect se encarga de cambiar el color de las letras a blancas cuando el tema es color negro y se activa el modo noche
     useEffect( ( ) =>{
 
+        //se actica la funcion que cambia el valor del tema
         saveData( "nightMode", activeNightMode )
-
-        const primaryColor = getComputedStyle( document.documentElement )
-            .getPropertyValue( "--primary-color" )
-            .trim( )
-            .toLowerCase( );
-
-        if( activeNightMode === true ){
-
-            document.body.classList.add( "nightMode" )
-            
-            if( primaryColor === "#000" || primaryColor ==="#000000" ){
-                document.documentElement.style.setProperty( "--primary-color", "#ffffff" )
-            }
-
-        }else{
-            if( primaryColor === "#ffffff" || primaryColor === "#fff"){ document.documentElement.style.setProperty( "--primary-color", "#000000" ) }
-            document.body.classList.remove( "nightMode" );
-        }
+        //dependiendo el valor de mi estado se agrega o se quita la clase del modo noche
+        activeNightMode === true? document.body.classList.add( "nightMode" ) : document.body.classList.remove( "nightMode" )
         
     }, [ activeNightMode ])
 
@@ -118,7 +105,9 @@ const Header = ( ) =>{
                     showThemePicker && 
                     <ThemePicker
                         // con esto mando el color como parametro y le agrego ese valor a los datos del usuario
-                        onChange = { ( color )  => saveData ("theme", color ) } 
+                        onChange = { ( color )  =>{
+                            saveData ("theme", color )
+                        }}
                        onClose={ ()=> setShowThemePicker( false ) }/> 
                 }
             </ul>

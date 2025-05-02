@@ -26,8 +26,8 @@ const ThemePicker = ( { onChange, onClose } ) =>{
             <TwitterPicker
                 triangle="hide" 
                 colors={[
+                    "#FFFFFF",
                     "#3B82F6",
-                    "#000",
                     "#8B5CF6", 
                     "#22C55E", 
                     "#F97316", 

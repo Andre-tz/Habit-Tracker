@@ -3,6 +3,7 @@ import { toast } from "sonner";
 import { Toaster } from "sonner";
 import CurrentDay from "./CurrentDay";
 import { useTranslation } from "react-i18next";
+import setThemeColor from "../helper/setThemeColor";
 
 const HabitContext = createContext( );
 
@@ -70,12 +71,26 @@ const HabitContextProvider = ( {children } ) => {
 
     //useEffect que se encargara de cargar los datos del usuarios guardado en el localStorage
     useEffect( ()=>{
-        //con esto cambio la propiedad en mis estilos que coincida con el nombre dado con el valor dado
-        document.documentElement.style.setProperty( "--primary-color", userData.theme )
 
+        //Esta condicional valida si el tema es negro y se activa el modo noche, el color principal cambia a blanco y el otro hace lo contrario, si esta en blanco y el modo noche esta desactivado entonces el color principal cambia a negro
+        if(  userData.theme === "#000000" && userData.nightMode === true ){
+            setThemeColor( "--primary-color", "#ffffff")
+        } else if( userData.theme === "#ffffff" && userData.nightMode === false ){
+            setThemeColor( "--primary-color", "#000000" )
+        }else{
+            //con esto cambio la propiedad en mis estilos que coincida con el nombre dado con el valor dado
+            setThemeColor( "--primary-color", userData.theme )
+        }
+
+        //con esas condicionales cambio el color de la letra de los botones ya que cuando el tema es blanco los botones se vuelven de este color y la letra blanca no se ve
+        if( ( userData.theme === "#ffffff" || userData.theme === "#000000") && userData.nightMode === true ){
+            setThemeColor( "--button-color-night", "#000000")
+        }else{
+            setThemeColor( "--button-color-night", "#ffffff")
+        } 
+        
         //esta dependencia es solo por ahora, ya que le agregaré mas cosas 
-    }, [ userData.theme ])
-
+    }, [ userData.theme, userData.nightMode ])
 
 
     /* USE EFFECT USADOS PARA EL CONTADOR DE ESTADOS */
