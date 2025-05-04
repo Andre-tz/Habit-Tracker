@@ -62,15 +62,17 @@ function Home() {
 		</div>
 
 		<section className="daily-habits">
-
+			{ /* Aqui valido si tengo habitos en mi localStorage*/}
 			{ habits.length == 0? 
-
+				//si no lo tengo entonces renderizo un mensaje
 				<h3 className="message">{ t("emptyState.noHabitsToShow" ) }</h3> :
 
+				//si lo tengo  entonces primero filtro mi array de dias
 				daysWeek
 					.filter(dia => splitHabits(dia, habits).length > 0)
+					// luego los mape0
 					.map( dia => (
-
+						//con cado uno creare un componente que tenga el nombre de cada uno de los dias de la semana
 						<HabitDay 
 							key={ dia }
 							day={ t( `days.full_name.${ dayMapping[ dia ]}`) }

@@ -61,6 +61,7 @@ const HabitContextProvider = ( {children } ) => {
             localStorage.setItem( "habitos", JSON.stringify( habits ))
         } else{
             localStorage.removeItem("habitos")
+            localStorage.removeItem( "stadosCheck" )
         }
     }, [ habits ])
 
@@ -69,9 +70,10 @@ const HabitContextProvider = ( {children } ) => {
         setHabits( prevHabits =>  [...prevHabits, habit ] );
     };
 
-    //funcion para eliminar los habitos al usar un boton
-    const handleDelete = ( idHabit ) =>{
-        setHabits( prevHabits => prevHabits.filter( habit => habit.id !== idHabit) )
+    //funcion para eliminar los habitos al usar un boton tambien se eliminara el habitCheck que coincida con el nombre
+    const handleDelete = ( idHabit, nameHabit ) =>{
+        setHabits( prevHabits => prevHabits. filter( habit => habit.id !== idHabit) )
+        setHabitStatusList( prevList => prevList. filter( habit => habit.name !== nameHabit))
         toast.success( "El hábito seleccionado ha sido eliminado" )
     }
 

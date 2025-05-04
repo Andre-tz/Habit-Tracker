@@ -39,7 +39,7 @@ const HabitItem = ( { id, nombre, frecuencia,  nota, dynamicClass, index } ) => 
 
             </div>
 
-            <button onClick={() => handleDelete(id)} className="habit-delete">{t("habit_list.button_delete")}</button>
+            <button onClick={() => handleDelete(id, nombre)} className="habit-delete">{t("habit_list.button_delete")}</button>
 
         </motion.div>
 

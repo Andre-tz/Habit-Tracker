@@ -10,15 +10,21 @@ const HabitCheck = ( { name, state, day } ) => {
 
     const { t } = useTranslation();
     
+    
     const { setSelectedHabit, setHabitStatusList, habitStatusList } = useContext( HabitContext);
     //Hook para navegar a otra página
     const navList = useNavigate( );
 
+    //estado del  check
     const [itsChecked, setItsChecked ] = useState( false );
+
+    //estado de cada habitCheck
+    const [ checkState, setCheckState ] = useState( state );
 
     //este useEffect carga todos mis HabitCheck a mi habitStatusList
     useEffect( ()=>{
         setHabitStatusList( prevList =>{
+
             //con el metodo some veo si algun habito se duplica
             const existe= prevList.some( habit => habit.name === name && habit.day === day )
             // si eso pasa entonces solo retornamos la lista
@@ -27,20 +33,29 @@ const HabitCheck = ( { name, state, day } ) => {
             // en caso de que no agregamos el nuevo habito a la cola
             return ( [
                 ...prevList,
-                { name, day, state }
+                { name, day, state: checkState }
             ])
         })
 
     }, [ ] )
 
-    useEffect( ()=>{ console.log( habitStatusList ) }, [])
+    //este useEffect se encargara de cambiar el estado y el check al del context
+    useEffect( ()=>{ 
+        //buscamos el estado dependiendo el nombre y el dia
+        const findState = habitStatusList.find( h => h.name === name && h.day === day )
+        //si lo encuentro entonces le cambio el estado por el del contexto y tambien cambio el check
+        if( findState){
+            setCheckState( findState.state )
+            setItsChecked( findState.state === t( "habit.complete" ) )
+        }
+    }, [ habitStatusList ])
 
     //manejador de stado del check
     const handleChange = ( ) =>{ 
         //guardo el nuevo valor itsCheked ya que lo voy a usar
         const newChecked = !itsChecked;
         // el nuevo estado dependera de esto, si esta marcado el Check me devuele completado y si no el estado anterior
-        const newStatus = newChecked? t( "habit.complete" ) : state 
+        const newStatus = newChecked? t( "habit.complete" ) : checkState 
         // cambio el estado del check para que se muestre visualmente en la app
         setItsChecked( newChecked);
 
@@ -68,7 +83,7 @@ const HabitCheck = ( { name, state, day } ) => {
         <div className="habit-check">
             <input type="checkbox" name="habitCheck" className="habitCheck" checked={ itsChecked } onChange={ handleChange } />
             <h3 className="habit-name" onClick={ handleClick }>{ name }</h3>
-            <p className={`habit-estatus ${ itsChecked? "complete" : "" }`}>{ itsChecked? t( "habit.complete" ) :  state }</p>
+            <p className={`habit-estatus ${ itsChecked? "complete" : "" }`}>{ itsChecked? t( "habit.complete" ) :  checkState }</p>
         </div>
     )
 }
