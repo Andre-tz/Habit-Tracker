@@ -8,7 +8,7 @@ import upperCase from "../helper/upperCase";
 import { useTranslation } from "react-i18next";
 import dayMapping from "../helper/dayMapping"
 import HabitPhrases from "./HabitPhrases";
-//import HabitProgress from "../components/HabitProgress"
+import HabitProgress from "../components/HabitProgress"
 
 
 function Home() {
@@ -17,7 +17,7 @@ function Home() {
 	const { t } = useTranslation();
 
 	//trayendo estados de mi context
-	const { habits, currentDay } = useContext( HabitContext )
+	const { habits, currentDay, habitStatusList } = useContext( HabitContext )
 
 	//Esta funcion se encargar de dividir todos los habitos por dia
 	const splitHabits = ( day, habitsInfo ) =>{
@@ -32,7 +32,7 @@ function Home() {
 						day= { day }
 						key={ habito.id } 
 						name={ upperCase( habito.name ) }
-						state = { day == currentDay? t( "habit.pendiente" ) : t( "habit.no_complete") }
+						state = { day == currentDay? "pending" : "no_complete" }
 						/>
 					)
 				)
@@ -56,7 +56,9 @@ function Home() {
 					<NavLink to = "/habit-form"><button className="button-main create">{ t( "create_habits" ) }</button></NavLink>
 				</ul>
 
-				{ /*/<HabitProgress /> */}	 
+				
+				{ habitStatusList.length > 0 && < HabitProgress />}
+
 			</div>
 
 		</div>

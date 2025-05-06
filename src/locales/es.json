@@ -8,7 +8,7 @@
 	"habit":{
 		"complete": "Completado",
 		"no_complete": "No completado",
-		"pendiente": "Pendiente"
+		"pending": "Pendiente"
 	}, 
 	
     "form":{

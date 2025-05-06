@@ -1,24 +1,53 @@
-#progress-bar {
-    display: flex;
-    height: 20px;
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #ccc; /* opcional */
-  }
-  
-  #complete {
-    background-color: #4caf50;
-  }
-  
-  #no-complete {
-    background-color: #f44336;
-  }
-  
-  #pendiente {
-    background-color: #ffeb3b;
-  }
-
-#progress-bar > div {
-    transition: width 0.3s ease-in-out;
+.progress-container {
+  width: 90%;
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: var( --box-shadow-light);
+  background-color: rgb(0, 0, 0);
 }
+
+.progress-bar {
+  display: flex;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var( --icon-color-light);
+}
+
+.segment {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.complete {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+}
+
+.no-complete {
+  background: linear-gradient(135deg, #f87171, #ef4444); 
+}
+
+.pendiente {
+  background: linear-gradient(135deg, #facc15, #eab308); 
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+  color: #f4f4f4;
+}
+
+.label {
+  margin: 0.25rem 0;
+  flex: 1 1 33%;
+  text-align: center;
+}
+
+.complete-label { color: #4ade80; }
+.no-complete-label { color: #f87171; }
+.pendiente-label { color: #facc15; }

@@ -19,6 +19,8 @@
 
 .top-section {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-around;
     margin: 20px 0;
     width: 100%;
@@ -72,13 +74,13 @@
 .message {
     font-size: 1rem;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 @media (min-width: 768px) {
 
-    .title{
-        font-size: 2.5rem;
+    #main-container .title{
+        font-size: 2.2rem;
     }
 
     .button-main{

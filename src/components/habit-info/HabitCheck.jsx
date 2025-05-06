@@ -39,23 +39,13 @@ const HabitCheck = ( { name, state, day } ) => {
 
     }, [ ] )
 
-    //este useEffect se encargara de cambiar el estado y el check al del context
-    useEffect( ()=>{ 
-        //buscamos el estado dependiendo el nombre y el dia
-        const findState = habitStatusList.find( h => h.name === name && h.day === day )
-        //si lo encuentro entonces le cambio el estado por el del contexto y tambien cambio el check
-        if( findState){
-            setCheckState( findState.state )
-            setItsChecked( findState.state === t( "habit.complete" ) )
-        }
-    }, [ habitStatusList ])
 
     //manejador de stado del check
     const handleChange = ( ) =>{ 
         //guardo el nuevo valor itsCheked ya que lo voy a usar
         const newChecked = !itsChecked;
         // el nuevo estado dependera de esto, si esta marcado el Check me devuele completado y si no el estado anterior
-        const newStatus = newChecked? t( "habit.complete" ) : checkState 
+        const newStatus = newChecked? "complete" : state
         // cambio el estado del check para que se muestre visualmente en la app
         setItsChecked( newChecked);
 
@@ -73,6 +63,19 @@ const HabitCheck = ( { name, state, day } ) => {
         })
     }
 
+    
+    //este useEffect se encargara de cambiar el estado y el check al del context
+    useEffect( ()=>{ 
+        //buscamos el estado dependiendo el nombre y el dia
+        const findState = habitStatusList.find( h => h.name === name && h.day === day )
+        //si lo encuentro entonces le cambio el estado por el del contexto y tambien cambio el check
+        if( findState){
+            setCheckState( findState.state )
+            setItsChecked( findState.state === "complete" )
+        }
+    }, [ habitStatusList ])
+
+
     //manejador del evento click
     const handleClick = ( )=>{
         setSelectedHabit( name )
@@ -83,7 +86,7 @@ const HabitCheck = ( { name, state, day } ) => {
         <div className="habit-check">
             <input type="checkbox" name="habitCheck" className="habitCheck" checked={ itsChecked } onChange={ handleChange } />
             <h3 className="habit-name" onClick={ handleClick }>{ name }</h3>
-            <p className={`habit-estatus ${ itsChecked? "complete" : "" }`}>{ itsChecked? t( "habit.complete" ) :  checkState }</p>
+            <p className={`habit-estatus ${ itsChecked? "completed" : "" }`}>{ itsChecked? t( "habit.complete" ) : t( `habit.${ checkState }` ) }</p>
         </div>
     )
 }
