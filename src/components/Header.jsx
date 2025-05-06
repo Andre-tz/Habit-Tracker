@@ -7,7 +7,7 @@ import { HabitContext } from "../context/HabitContext";
 import ThemePicker from "./ThemePicker";
 import { useTranslation } from "react-i18next";
 import "../styles/Header.css"
-import setThemeColor from "../helper/setThemeColor";
+import { AiFillThunderbolt } from "react-icons/ai";
 
 //este componente me mostrará la cabezera
 const Header = ( ) =>{
@@ -84,7 +84,7 @@ const Header = ( ) =>{
     ]
     return (
         <header id="header">
-            <h1 id="name-app">{ "</ itsAndreDev >" }</h1>
+            <h1 id="name-app">{"<"}<AiFillThunderbolt />{">"} ItsAndreDev</h1>
 
 
             <ul id="user-options">
